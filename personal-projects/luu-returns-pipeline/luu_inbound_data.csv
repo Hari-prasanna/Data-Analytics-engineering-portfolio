@@ -1,0 +1,352 @@
+load_carrier_id,origin_site,site_type,carrier_status,dispatch_timestamp,arrived_timestamp,carrier_comments,item_id,item_category,incoming_quality,assessed_grade,quality_note,weight_kg,routed_destination
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-097546257,Zalando SE,B,,,2.71,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-729125203,Expiring Beauty,B,,,0.62,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-973804320,Zalando SE,A,,,-1.16,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-979133459,Customer Return,A,,,2.81,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-290707834,Zalando SE,A,,,3.14,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-116098205,Zalando SE,A,,,1.67,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-984681932,Zalando SE,A,,,1.37,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-601778703,Expiring Beauty,B,,,0.36,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-595710955,Expiring Beauty,B,,,2.2,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-738427365,Zalando SE,A,,,3.02,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-245162487,Zalando SE,A,,,2.23,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-979663633,Expiring Beauty,A,,,2.4,Pending Assessment
+LPN-MÖN-83209-LUU,Mönchengladbach,FC,In Transit,2026-02-09 18:17:33,,ok,ITEM-629743895,Expiring Beauty,A,,,0.61,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-487396326,Zalando SE,B,,,3.09,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-275592203,Zalando SE,B,,,0.12,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-286317510,Expiring Beauty,A,,,1.54,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-057255722,Zalando SE,A,,,2.06,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-348436478,Customer Return,A,,,3.24,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-914862367,Zalando SE,A,,,0.85,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-724836480,Expiring Beauty,B,,,-1.51,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-068254404,Zalando SE,A,,,1.82,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-357141407,Zalando SE,B,,,0.27,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-671230480,Zalando SE,B,,,2.16,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-469203378,Zalando SE,A,,,0.32,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-155208538,Zalando SE,A,,,3.17,Pending Assessment
+LPN-LAH-14269-LUU,Lahr,FC,Delayed,2026-02-17 07:36:00,, weather delay ,ITEM-669116694,Zalando SE,B,,,0.11,Pending Assessment
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-722816084,Customer Return,D,D,,0.42,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-881422387,Customer Return,C,C,,1.18,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-236968274,Customer Return,A,A,MINOR SCUFFS,2.43,Outlet Stores
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-883765839,Customer Return,C,C,,-0.2,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-595364773,Customer Return,D,D,,3.31,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-845153317,Customer Return,B,B,MINOR SCUFFS,2.94,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-868474297,Customer Return,A,A,Mint condition,3.03,Outlet Stores
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-203692474,Customer Return,A,A,perfect,0.98,Outlet Stores
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-871211990,Customer Return,C,C,,0.63,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-006888060,Customer Return,B,B, original packaging,0.18,Overstock Partners
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-390986276,Customer Return,A,A,perfect,0.23,Outlet Stores
+LPN-LOD-14463-LUU,Lodz,RC,Arrived,2026-02-13 03:36:09,2026-02-16 10:57:09,ok,ITEM-904669505,Customer Return,B,,,1.79,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-371909106,Zalando SE,A,,,2.78,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-629487862,Zalando SE,B,,,1.83,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-261870569,Expiring Beauty,A,,,1.67,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-320700078,Zalando SE,B,,,2.02,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-681827628,Zalando SE,A,,,2.6,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-902987492,Zalando SE,B,,,2.67,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-465607941,Zalando SE,A,,,0.82,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-299316078,Zalando SE,A,,,3.12,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-909478043,Expiring Beauty,A,,,0.57,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-672425368,Zalando SE,A,,,0.3,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-818557941,Expiring Beauty,B,,,0.12,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-141722195,Expiring Beauty,A,,,1.12,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-398911400,Zalando SE,A,,,2.8,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-229702886,Zalando SE,A,,,2.87,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-093622046,Expiring Beauty,B,,,3.17,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-587581023,Zalando SE,A,,,0.84,Pending Assessment
+LPN-LAH-64453-LUU,Lahr,FC,Dispatched,2026-02-13 23:58:33,,ok,ITEM-142636853,Zalando SE,A,,,3.43,Pending Assessment
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-417498287,Customer Return,C,C,,2.99,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-311630400,Customer Return,A,C,,2.77,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-848157823,Customer Return,C,,,0.61,Pending Assessment
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-305535460,Customer Return,A,A,MINOR SCUFFS,1.59,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-316909910,Customer Return,A,A, original packaging,3.08,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-389137298,ZFS Defect,B,B,Mint condition,2.53,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-548372881,Customer Return,B,C,,1.41,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-591099371,Customer Return,A,C,,2.53,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-057352345,Customer Return,B,B,Mint condition,0.41,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-994656034,Customer Return,A,A,Mint condition,2.87,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-077216260,Customer Return,C,D,,0.38,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-038930056,Customer Return,A,A,perfect,3.02,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-981552983,ZFS Defect,A,A,perfect,0.6,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-617869144,ZFS Defect,C,C,,0.31,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-659463367,Customer Return,A,,,3.16,Pending Assessment
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-485398277,Customer Return,B,D,,0.8,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-569057101,Customer Return,A,A,Mint condition,0.36,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-784892304,Customer Return,C,D,,1.31,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-240726642,Customer Return,A,B,Mint condition,1.13,Outlet Stores
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-306056297,Customer Return,A,B,MINOR SCUFFS,1.98,Overstock Partners
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-809193074,Customer Return,A,A,perfect,1.1,Outlet Stores
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-581720745,Customer Return,C,,,1.57,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-763753732,Customer Return,D,,,0.77,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-394326312,Customer Return,C,,,3.34,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-038113505,Customer Return,C,,,-2.9,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-793783789,Customer Return,C,,,1.65,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-127610489,Customer Return,A,,,3.25,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-242228205,ZFS Defect,B,,,2.49,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-223364947,Customer Return,B,,,1.73,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-450829475,Customer Return,A,,,0.45,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-643743887,Customer Return,A,,,1.33,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-596701629,ZFS Defect,B,,,1.04,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-442675633,Customer Return,C,,,0.83,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-569555968,ZFS Defect,B,,,0.41,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-974311132,ZFS Defect,A,,,1.22,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-790174897,ZFS Defect,A,,,1.54,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-173237820,ZFS Defect,A,,,1.94,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-076731121,Customer Return,A,,,0.69,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-773769331,Customer Return,C,,,1.63,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-202559374,Customer Return,A,,,2.37,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-688891372,ZFS Defect,D,,,3.05,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-335894426,Customer Return,A,,,0.66,Pending Assessment
+LPN-SZC-69942-LUU,Szczecin,RC,Delayed,2026-02-22 02:11:39,,  missing paperwork,ITEM-500349835,Customer Return,B,,,0.51,Pending Assessment
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-897454630,Zalando SE,A,A, original packaging,3.0,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-462253338,Expiring Beauty,A,A,Mint condition,3.17,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-292553393,Zalando SE,A,A, original packaging,1.74,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-688687904,Zalando SE,B,B, original packaging,2.88,Overstock Partners
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-411125037,Zalando SE,A,A,MINOR SCUFFS,2.54,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-801865689,Zalando SE,A,A, original packaging,2.32,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-894052244,Expiring Beauty,A,C,system_error_note_added,2.96,Overstock Partners
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-106429575,Zalando SE,A,A, original packaging,2.16,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-649952091,Zalando SE,B,C,system_error_note_added,1.13,Overstock Partners
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-563259517,Zalando SE,B,B,Mint condition,2.44,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-742687998,Zalando SE,A,A,MINOR SCUFFS,0.62,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-484378545,Zalando SE,A,A,MINOR SCUFFS,2.45,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-681997931,Zalando SE,A,A,Mint condition,0.81,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-268176857,Zalando SE,B,B,perfect,1.94,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-566495434,Zalando SE,B,B,perfect,2.44,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-942603524,Zalando SE,A,A, original packaging,2.27,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-304109661,Zalando SE,A,,,2.87,Pending Assessment
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-165543246,Zalando SE,A,A,perfect,0.61,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-323262693,Zalando SE,A,A,perfect,3.34,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-534159316,Zalando SE,A,A, original packaging,2.5,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-891846158,Expiring Beauty,B,B,MINOR SCUFFS,1.98,Overstock Partners
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-595394017,Expiring Beauty,A,B,perfect,2.95,Outlet Stores
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-736515767,Zalando SE,A,,,2.02,Pending Assessment
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-191703824,Expiring Beauty,A,A,Mint condition,0.51,Outlet Stores
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-683538503,Zalando SE,A,,,2.36,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-262663525,Zalando SE,B,,,1.61,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-325850586,Zalando SE,A,,,2.12,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-262051046,Zalando SE,B,,,2.36,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-873659895,Zalando SE,A,,,-2.16,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-421564006,Zalando SE,A,,,1.5,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-717305820,Zalando SE,A,,,1.75,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-999561380,Expiring Beauty,B,,,-1.24,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-936108519,Zalando SE,A,,,3.23,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-658067198,Zalando SE,B,,,0.79,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-267964590,Zalando SE,B,,,1.09,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-827778747,Expiring Beauty,A,,,0.19,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-793768857,Zalando SE,A,,,1.07,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-303431477,Zalando SE,B,,,2.08,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-167012012,Zalando SE,A,,,-2.46,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-791306478,Zalando SE,A,,,1.77,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-772125696,Zalando SE,B,,,3.01,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-781966871,Zalando SE,A,,,2.65,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-683900151,Expiring Beauty,B,,,1.01,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-067929826,Zalando SE,A,,,1.72,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-348331152,Expiring Beauty,A,,,3.44,Pending Assessment
+LPN-ERF-59061-LUU,Erfurt,FC,In Transit,2026-02-09 02:43:35,,ok,ITEM-351322035,Zalando SE,A,,,0.47,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-624646994,ZFS Defect,B,,,0.59,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-662654806,ZFS Defect,C,,,3.25,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-917975938,ZFS Defect,C,,,0.17,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-642463896,Customer Return,A,,,1.16,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-317274209,Customer Return,A,,,-0.68,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-348883334,ZFS Defect,B,,,0.92,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-887040076,Customer Return,A,,,-0.76,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-393482942,Customer Return,B,,,1.95,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-811487308,Customer Return,C,,,1.07,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-462828839,Customer Return,C,,,2.51,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-617606840,Customer Return,B,,,1.87,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-641434941,ZFS Defect,D,,,1.08,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-903275826,Customer Return,A,,,0.91,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-090977829,Customer Return,C,,,0.48,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-581219053,Customer Return,A,,,-0.87,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-039432793,Customer Return,D,,,1.37,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-846889045,Customer Return,A,,,3.17,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-366548852,ZFS Defect,C,,,3.02,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-049223974,Customer Return,A,,,0.28,Pending Assessment
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-045182088,Customer Return,B,,,1.71,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-954858182,Customer Return,C,,,1.63,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-221068696,Customer Return,C,,,3.09,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-586834675,Customer Return,A,,,0.18,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-563522915,Customer Return,B,,,0.69,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-478269481,Customer Return,B,,,3.33,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-361916588,Customer Return,B,,,-2.52,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-810573576,Customer Return,B,,,2.36,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-570593187,Customer Return,A,,,3.37,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-619522192,Customer Return,D,,,0.52,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-200076844,Customer Return,A,,,0.74,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-924128216,Customer Return,B,,,0.39,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-700016801,Customer Return,A,,,0.29,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-080632905,Customer Return,C,,,0.67,Pending Assessment
+LPN-LOD-21482-LUU,Lodz,RC,Delayed,2026-02-09 11:52:09,,  missing paperwork,ITEM-349974185,Customer Return,B,,,2.92,Pending Assessment
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-980807384,Customer Return,C,C,,1.79,Overstock Partners
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-024745054,Customer Return,C,C,,0.9,Overstock Partners
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-929681162,Customer Return,A,C,,1.22,Overstock Partners
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-316663566,Customer Return,B,C,,2.54,Overstock Partners
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-406116043,ZFS Defect,A,A,Mint condition,3.23,Outlet Stores
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-199893488,ZFS Defect,D,,,3.12,Pending Assessment
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-051242171,Customer Return,A,A,perfect,0.75,Outlet Stores
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-974586144,Customer Return,A,A,Mint condition,0.55,Outlet Stores
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-404366640,Customer Return,B,B,MINOR SCUFFS,3.1,Outlet Stores
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-395949353,Customer Return,A,A,perfect,2.86,Outlet Stores
+LPN-GLO-73051-LUU,Glowno,RC,Arrived,2026-02-19 18:19:02,2026-02-20 23:03:02,   ,ITEM-957619247,Customer Return,B,C,,0.18,Overstock Partners
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-547443771,Expiring Beauty,A,,,1.97,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-316566483,Zalando SE,A,,,2.07,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-648137015,Zalando SE,A,,,-1.57,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-140528975,Zalando SE,A,,,1.06,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-637678123,Zalando SE,A,,,1.56,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-148344986,Zalando SE,A,,,0.42,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-227963310,Zalando SE,A,,,1.15,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-014134211,Zalando SE,A,,,2.6,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-776200051,Zalando SE,A,,,1.87,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-883987894,Expiring Beauty,A,,,0.87,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-496242016,Expiring Beauty,A,,,2.19,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-992417741,Zalando SE,A,,,1.56,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-493694409,Zalando SE,A,,,2.47,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-324179691,Zalando SE,A,,,2.37,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-473640448,Customer Return,A,,,2.03,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-738354416,Expiring Beauty,A,,,0.13,Pending Assessment
+LPN-MÖN-33614-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 13:24:50,, standard handling,ITEM-249229062,Expiring Beauty,B,,,3.48,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-346785213,Customer Return,A,,,1.05,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-121860279,Customer Return,A,,,2.39,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-455653567,Customer Return,C,,,0.53,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-403979245,Customer Return,D,,,2.67,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-907440610,Customer Return,A,,,1.82,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-434896700,Customer Return,A,,,1.47,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-661560466,Customer Return,C,,,0.85,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-858212637,ZFS Defect,B,,,1.36,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-198831270,Customer Return,C,,,1.81,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-612734581,Customer Return,C,,,2.41,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-795606564,ZFS Defect,D,,,1.34,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-643223780,Customer Return,D,,,0.75,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-750155949,ZFS Defect,A,,,0.89,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-582891610,Customer Return,A,,,3.14,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-865917506,ZFS Defect,A,,,-0.63,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-042430032,Customer Return,A,,,1.41,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-335142864,Customer Return,A,,,0.23,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-274193551,ZFS Defect,A,,,2.26,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-748664608,Customer Return,D,,,2.99,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-653735755,Customer Return,A,,,3.26,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-051335341,Customer Return,A,,,0.6,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-607647890,Customer Return,C,,,0.62,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-220414113,ZFS Defect,A,,,3.22,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-672289161,ZFS Defect,B,,,2.16,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-859559683,Customer Return,B,,,2.24,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-992510358,Customer Return,B,,,1.3,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-077227914,Customer Return,C,,,2.1,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-171231521,ZFS Defect,C,,,0.5,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-522158187,Customer Return,A,,,3.16,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-277098266,Customer Return,A,,,-1.3,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-095634321,Customer Return,A,,,0.6,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-194898312,ZFS Defect,C,,,1.19,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-091665870,Customer Return,C,,,3.03,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-809918327,Customer Return,A,,,2.82,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-902167770,ZFS Defect,A,,,2.71,Pending Assessment
+LPN-GLO-50157-LUU,Glowno,RC,Delayed,2026-02-18 14:44:21,,CUSTOMS_HOLD,ITEM-466198457,Customer Return,C,,,1.71,Pending Assessment
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-356615574,Customer Return,C,C,,1.84,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-541649421,Customer Return,A,,,1.05,Pending Assessment
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-712764885,Customer Return,B,B,perfect,0.43,Outlet Stores
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-710543855,Customer Return,B,B,MINOR SCUFFS,0.86,Outlet Stores
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-636776890,ZFS Defect,A,A, original packaging,1.79,Outlet Stores
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-545481448,ZFS Defect,B,B, original packaging,2.79,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-967911448,Customer Return,B,D,,1.04,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-072950900,ZFS Defect,D,D,,0.64,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-316080378,Customer Return,A,A, original packaging,1.94,Outlet Stores
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-273933017,ZFS Defect,D,D,,0.42,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-304802548,Customer Return,C,C,,0.85,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-681978774,Customer Return,B,C,,2.03,Overstock Partners
+LPN-GLO-14890-LUU,Glowno,RC,Arrived,2026-02-08 22:37:04,2026-02-12 00:13:04,   ,ITEM-926038781,Customer Return,B,C,,3.31,Overstock Partners
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-125393822,Expiring Beauty,A,,,0.93,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-553044513,Expiring Beauty,B,,,2.45,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-112560433,Zalando SE,A,,,0.49,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-811820395,Zalando SE,A,,,1.46,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-090441428,Zalando SE,B,,,2.87,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-235569447,Zalando SE,A,,,0.42,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-418539135,Zalando SE,A,,,1.75,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-041279244,Expiring Beauty,A,,,2.95,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-934370345,Zalando SE,B,,,1.86,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-712775475,Customer Return,A,,,1.87,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-266982210,Zalando SE,B,,,2.1,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-022030886,Zalando SE,A,,,3.33,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-860553324,Zalando SE,B,,,3.13,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-794587750,Zalando SE,B,,,2.84,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-564967466,Zalando SE,B,,,3.21,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-780100149,Zalando SE,A,,,0.81,Pending Assessment
+LPN-LAH-51459-LUU,Lahr,FC,Delayed,2026-02-19 20:06:24,,  missing paperwork,ITEM-303857366,Expiring Beauty,A,,,1.55,Pending Assessment
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-392144399,Customer Return,C,C,,2.0,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-875852020,Customer Return,A,A,Mint condition,1.43,Outlet Stores
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-913108042,Customer Return,C,C,system_error_note_added,1.2,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-663286955,Customer Return,B,B,perfect,-0.52,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-709092464,Customer Return,B,D,,2.17,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-533263595,Customer Return,B,B,Mint condition,1.03,Outlet Stores
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-876365942,Customer Return,C,C,,1.59,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-363376705,ZFS Defect,B,C,,1.11,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-866353856,Customer Return,D,D,,-1.12,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-111916825,Customer Return,B,B, original packaging,0.4,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-412727880,Customer Return,C,C,,0.92,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-738460760,Customer Return,C,C,,1.06,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-215277200,Customer Return,B,B,MINOR SCUFFS,1.46,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-768320909,Customer Return,D,D,,2.84,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-194759142,Customer Return,A,A,Mint condition,0.11,Outlet Stores
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-003622854,ZFS Defect,C,C,,1.39,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-615136944,ZFS Defect,A,A, original packaging,1.68,Outlet Stores
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-197286219,ZFS Defect,B,B,MINOR SCUFFS,3.28,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-908745905,Customer Return,B,B,MINOR SCUFFS,2.88,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-573977895,Customer Return,D,D,,3.38,Overstock Partners
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-253407198,Customer Return,A,B,Mint condition,1.83,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-848708114,Customer Return,C,C,,0.39,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-870222833,Customer Return,B,,,2.01,Pending Assessment
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-223934672,Customer Return,A,B,Mint condition,0.18,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-513489724,Customer Return,A,A, original packaging,-3.1,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-864636076,Customer Return,A,A, original packaging,0.32,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-228574924,Customer Return,A,A,Mint condition,1.9,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-385892813,Customer Return,B,C,,2.58,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-427355297,Customer Return,A,A,perfect,0.73,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-870251428,Customer Return,A,A, original packaging,3.44,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-673791977,Customer Return,B,B, original packaging,1.2,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-990147177,ZFS Defect,B,C,,0.91,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-869886258,Customer Return,C,D,,2.36,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-214420149,ZFS Defect,C,,,1.36,Pending Assessment
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-446801832,Customer Return,B,B,perfect,1.66,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-450880231,Customer Return,C,C,,2.44,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-764390557,Customer Return,B,B,MINOR SCUFFS,0.88,Outlet Stores
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-588056104,Customer Return,B,C,,3.1,Overstock Partners
+LPN-SZC-65311-LUU,Szczecin,RC,Arrived,2026-02-14 14:37:18,2026-02-16 14:08:18, standard handling,ITEM-329919684,Customer Return,A,A, original packaging,2.0,Outlet Stores
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-940644364,Zalando SE,B,,,1.05,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-998057542,Expiring Beauty,B,,,1.11,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-538612840,Zalando SE,A,,,3.24,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-586858976,Zalando SE,B,,,0.81,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-274529559,Zalando SE,A,,,2.02,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-673410348,Zalando SE,A,,,0.12,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-643361475,Zalando SE,A,,,2.75,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-823059748,Zalando SE,A,,,0.49,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-204876623,Expiring Beauty,B,,,3.42,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-991483045,Zalando SE,B,,,0.23,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-192256095,Zalando SE,B,,,2.3,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-261008168,Zalando SE,A,,,1.3,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-567465243,Zalando SE,A,,,3.02,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-509014361,Zalando SE,B,,,1.81,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-457784711,Zalando SE,A,,,1.59,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-764542264,Zalando SE,B,,,3.16,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-625876919,Expiring Beauty,A,,,1.33,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-997633077,Zalando SE,B,,,3.49,Pending Assessment
+LPN-MÖN-77674-LUU,Mönchengladbach,FC,Dispatched,2026-02-14 03:46:49,, standard handling,ITEM-305385356,Zalando SE,A,,,0.35,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-936985187,Zalando SE,A,,,2.8,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-022400718,Expiring Beauty,A,,,2.62,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-446445550,Zalando SE,A,,,0.92,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-902313993,Expiring Beauty,B,,,0.52,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-181959667,Expiring Beauty,A,,,0.6,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-815246915,Zalando SE,A,,,2.94,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-150150003,Zalando SE,A,,,3.34,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-112653836,Zalando SE,B,,,0.87,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-266134878,Zalando SE,B,,,-0.86,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-488752353,Zalando SE,A,,,1.52,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-462618192,Expiring Beauty,A,,,0.64,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-845876652,Zalando SE,B,,,2.77,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-354608097,Zalando SE,A,,,0.39,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-704641491,Expiring Beauty,A,,,-2.57,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-045626408,Zalando SE,A,,,-0.92,Pending Assessment
+LPN-LAH-36494-LUU,Lahr,FC,In Transit,2026-02-20 21:19:26,, standard handling,ITEM-365632448,Zalando SE,A,,,0.37,Pending Assessment
+LPN-GLO-76114-LUU,Glowno,RC,Dispatched,2026-02-18 19:04:53,,   ,ITEM-434896700,Customer Return,A,,,1.47,Pending Assessment
+LPN-SZC-15627-LUU,Szczecin,RC,Arrived,2026-02-18 05:43:04,2026-02-21 14:16:04, standard handling,ITEM-569057101,Customer Return,A,A,Mint condition,0.36,Outlet Stores
+LPN-LOD-98529-LUU,Lodz,RC,Arrived,2026-02-19 18:40:43,2026-02-23 05:41:43,   ,ITEM-913108042,Customer Return,C,C,system_error_note_added,1.2,Overstock Partners
+LPN-SZC-42225-LUU,Szczecin,RC,Delayed,2026-02-10 11:41:58,,  missing paperwork,ITEM-917975938,ZFS Defect,C,,,0.17,Pending Assessment
+LPN-VER-52447-LUU,Verona,FC,Arrived,2026-02-18 21:36:21,2026-02-21 11:27:21,ALL_GOOD,ITEM-688687904,Zalando SE,B,B, original packaging,2.88,Overstock Partners
