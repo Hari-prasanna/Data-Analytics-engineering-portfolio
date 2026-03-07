@@ -10,4 +10,4 @@ venv
 # Ignore dbt logs and target folders (these get massive!)
 logs/
 target/
-dbt_packages/
+dbt_packages/.DS_Store
