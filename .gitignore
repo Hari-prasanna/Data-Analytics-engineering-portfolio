@@ -11,3 +11,4 @@ venv
 logs/
 target/
 dbt_packages/.DS_Store
+.DS_Store
