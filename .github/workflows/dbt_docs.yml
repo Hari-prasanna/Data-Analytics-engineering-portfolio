@@ -1,0 +1,73 @@
+name: Publish dbt Docs to GitHub Pages
+
+# Wake up the Robot when code is merged to main, or if we click "Run" manually
+on:
+  push:
+    branches: ["main"]
+    paths: ["TMDB-ELT/**"]
+  workflow_dispatch: 
+
+# Give the Robot the security badge to write to the public website
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: tmdb-production # Walk into the secure room for credentials
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.DB_NAME }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dbt
+        run: pip install dbt-postgres
+
+      # The Chef printing the Menu
+      - name: Generate dbt docs
+        env:
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_HOST: localhost
+          DB_PORT: 5432
+        run: |
+          cd TMDB-ELT/Movie_data_transformation
+          dbt docs generate --profiles-dir .
+
+      # Preparing the Display Case
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      # Taping the Menu to the window
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'TMDB-ELT/Movie_data_transformation/target'
+
+      # Publishing it to the internet
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
