@@ -2,6 +2,8 @@
 
 An end-to-end ELT pipeline that extracts movie and financial data from the TMDB API, loads it into a PostgreSQL data warehouse, and models it for analytics using dbt. The entire workflow is protected by a custom GitHub Actions CI/CD pipeline.
 
+> 🔍 **Live Interactive Documentation:** [View the dbt Data Lineage & Docs Here](https://Hari-prasanna.github.io/Data-Analytics-engineering-portfolio/)
+
 ## 🏗️ Architecture
 
 1. **Extract & Load (Python):** Connects to the TMDB REST API, handles pagination and rate limits, processes the JSON responses via Pandas, and loads the raw data into PostgreSQL.
