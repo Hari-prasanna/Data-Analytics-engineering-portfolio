@@ -20,8 +20,6 @@ from stg_raw_movie_details)
 
 
 SELECT * FROM cleaned
-
--- The Bouncer: Only process new financial data!
 {% if is_incremental() %}
     WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
