@@ -12,3 +12,8 @@ logs/
 target/
 dbt_packages/.DS_Store
 .DS_Store
+
+# Airflow Virtual Environments & Secrets
+orchestration/include/TMDB-ELT/tmdb_env/
+orchestration/include/TMDB-ELT/dbt_env/
+orchestration/include/TMDB-ELT/.env
