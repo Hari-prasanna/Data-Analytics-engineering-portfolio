@@ -18,7 +18,7 @@ from typing import Optional, List, Dict, Tuple, Any
 import pandas as pd
 import requests
 from dotenv import load_dotenv
-from sqlalchemy import create_engine, Engine, text
+from sqlalchemy import create_engine, text
 
 # =============================================================================
 # CONFIGURATION
@@ -27,12 +27,12 @@ from sqlalchemy import create_engine, Engine, text
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
 RELEASE_DATE_START = "2026-01-01"
 RELEASE_DATE_END = "2026-12-31"
-DEFAULT_MAX_PAGES = 5
+DEFAULT_MAX_PAGES = 10
 API_RATE_LIMIT_DELAY = 0.1
 PROGRESS_LOG_INTERVAL = 20
 
 
-def get_database_engine() -> Engine:
+def get_database_engine() -> Any:
     """Create and return a SQLAlchemy database engine."""
     load_dotenv()
 
@@ -157,7 +157,7 @@ def serialize_complex_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_to_postgres(
-    data: List[dict], table_name: str, engine: Engine
+    data: List[dict], table_name: str, engine: Any
 ) -> None:
     """
     Load a list of dictionaries into a PostgreSQL raw table.
@@ -181,7 +181,11 @@ def load_to_postgres(
     # --- THE FIX: Build the 'raw' schema drawer ---
     with engine.connect() as conn:
         conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw;"))
-        conn.commit()
+        try:
+            conn.commit()
+        except AttributeError:
+            # SQLAlchemy 1.4 without future=True auto-commits DDL, so .commit() isn't strictly necessary and may throw an error.
+            pass
     # ----------------------------------------------
 
     print(f"   📥 Loading {len(df)} rows into 'raw.{table_name}'...")

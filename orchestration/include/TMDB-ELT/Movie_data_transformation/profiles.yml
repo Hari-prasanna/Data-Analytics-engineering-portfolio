@@ -1,4 +1,4 @@
-Movie_data_transformation:  
+movie_data_transformation:  
   target: dev
   outputs:
     dev:
