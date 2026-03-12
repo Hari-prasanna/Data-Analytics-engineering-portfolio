@@ -11,3 +11,15 @@ Movie_data_transformation:
       schema: public
       threads: 4
       keepalives_idle: 0
+
+Movie_data_transformation:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      catalog: portfolio_projects
+      schema: tmdb
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      threads: 4
