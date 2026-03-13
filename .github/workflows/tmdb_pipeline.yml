@@ -47,14 +47,23 @@ jobs:
           cd TMDB-ELT/cloud_pipeline
           python extract_to_s3.py
 
-      # 5. Run dbt in Databricks (The Health Inspector & Transformer)
+    # 5. Run dbt in Databricks (The Health Inspector & Transformer)
       - name: Run dbt build
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          cd TMDB-ELT/databricks_cloud
+          cd TMDB-ELT/cloud_pipeline/databricks_cloud
+          
+          # Install dbt dependencies 
+          dbt deps --profiles-dir .
+          
+          # Test the connection to the Databricks cluster
+          dbt debug --profiles-dir .
+          
+          # Build, Test, and Snapshot everything!
+          dbt build --profiles-dir .
           
           # Install dbt dependencies (if you have packages like dbt-utils)
           dbt deps --profiles-dir .
