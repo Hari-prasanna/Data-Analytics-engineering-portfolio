@@ -5,7 +5,7 @@
     target_schema='snapshot',
     unique_key='movie_id',
     strategy='check',
-    check_cols=['popularity','status','release_date']
+    check_cols=['popularity','release_status','release_date']
 )}}
 
 
