@@ -43,7 +43,7 @@ jobs:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }} 
+          AWS_S3_BUCKET: "hari-data-engineering-workspace"
         run: |
           cd TMDB-ELT/cloud_pipeline
           python extract_to_s3.py
