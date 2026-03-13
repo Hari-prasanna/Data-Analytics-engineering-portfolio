@@ -41,9 +41,10 @@ jobs:
       - name: Run Python S3 Extraction
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          # AWS Secrets required to upload the parquet files
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          # ADD THIS LINE BELOW (Make sure the variable name matches your Python script!)
+          AWS_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET }}
         run: |
           cd TMDB-ELT/cloud_pipeline
           python extract_to_s3.py
