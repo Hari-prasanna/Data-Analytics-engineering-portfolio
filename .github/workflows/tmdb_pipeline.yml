@@ -35,7 +35,7 @@ jobs:
       # Notice we swapped Postgres for boto3 (AWS) and dbt-databricks!
       - name: Install dependencies
         run: |
-          pip install pandas requests boto3 dbt-databricks
+          pip install pandas requests boto3 dbt-databricks python-dotenv
 
       # 4. Run the Python Extraction to AWS S3
       - name: Run Python S3 Extraction
