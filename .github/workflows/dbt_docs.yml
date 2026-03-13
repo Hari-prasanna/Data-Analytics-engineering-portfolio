@@ -1,10 +1,11 @@
-name: Publish dbt Docs to GitHub Pages
+name: Publish Databricks dbt Docs to GitHub Pages
 
-# Wake up the Robot when code is merged to main, or if we click "Run" manually
+# Wake up the Robot when our Databricks code is merged, or if clicked manually
 on:
   push:
     branches: ["main"]
-    paths: ["TMDB-ELT/**"]
+    paths: 
+      - "TMDB-ELT/databricks_cloud/**"
   workflow_dispatch: 
 
 # Give the Robot the security badge to write to the public website
@@ -18,20 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: tmdb-production # Walk into the secure room for credentials
 
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.DB_NAME }}
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+    # NOTICE: The massive Postgres 'services' block is completely gone! 🗑️
 
     steps:
       - name: Checkout code
@@ -42,30 +30,34 @@ jobs:
         with:
           python-version: '3.9'
 
+      # Install the Cloud Adapter instead of Postgres
       - name: Install dbt
-        run: pip install dbt-postgres
+        run: pip install dbt-databricks
 
-      # The Chef printing the Menu
+      # The Chef printing the Menu (Using Cloud Secrets!)
       - name: Generate dbt docs
         env:
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_NAME: ${{ secrets.DB_NAME }}
-          DB_HOST: localhost
-          DB_PORT: 5432
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          cd TMDB-ELT/Movie_data_transformation
+          cd TMDB-ELT/databricks_cloud
+          
+          # Always good practice to run deps in case you added dbt packages
+          dbt deps --profiles-dir .
+          
+          # Generate the documentation JSON files
           dbt docs generate --profiles-dir .
 
       # Preparing the Display Case
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      # Taping the Menu to the window
+      # Taping the Menu to the window (Updated folder path!)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'TMDB-ELT/Movie_data_transformation/target'
+          path: 'TMDB-ELT/databricks_cloud/target'
 
       # Publishing it to the internet
       - name: Deploy to GitHub Pages
