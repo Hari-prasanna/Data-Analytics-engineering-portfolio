@@ -1,7 +1,7 @@
 {{config(materialized = 'incremental', unique_key = 'movie_id')}}
 
 WITH raw_movies_data AS (
-    SELECT * FROM {{source('tmdb_bronze','bronze_movies')}}
+    SELECT * FROM {{source('tmdb_bronze','raw_movies')}}
 ),
 
 cleaned AS (
@@ -12,7 +12,7 @@ cleaned AS (
         release_date::DATE,
         popularity :: FLOAT,
         vote_count :: FLOAT,
-        ROUND(vote_average::NUMERIC,1) AS vote_avg,
+        ROUND(vote_average::NUMERIC,2) AS vote_avg,
         (loaded_at)::TIMESTAMP AS loaded_at
     FROM raw_movies_data
 ),
