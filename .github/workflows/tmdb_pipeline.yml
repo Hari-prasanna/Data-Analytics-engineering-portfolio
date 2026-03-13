@@ -47,7 +47,7 @@ jobs:
           cd TMDB-ELT/cloud_pipeline
           python extract_to_s3.py
 
-    # 5. Run dbt in Databricks (The Health Inspector & Transformer)
+    # 5. Run dbt in Databricks
       - name: Run dbt build
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}

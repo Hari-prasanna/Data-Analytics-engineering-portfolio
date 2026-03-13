@@ -41,7 +41,7 @@ jobs:
           DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          cd TMDB-ELT/databricks_cloud
+          cd TMDB-ELT/cloud_pipeline/databricks_cloud
           
           # Always good practice to run deps in case you added dbt packages
           dbt deps --profiles-dir .
@@ -57,7 +57,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'TMDB-ELT/databricks_cloud/target'
+          path: 'TMDB-ELT/cloud_pipeline/databricks_cloud/target'
 
       # Publishing it to the internet
       - name: Deploy to GitHub Pages
