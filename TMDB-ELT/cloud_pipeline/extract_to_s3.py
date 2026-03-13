@@ -14,6 +14,8 @@ from io import BytesIO
 import pandas as pd
 import requests
 import boto3
+
+# Safely load local .env file (Ignored perfectly by GitHub Actions!)
 try:
     from dotenv import load_dotenv
     load_dotenv()
@@ -21,7 +23,7 @@ except ImportError:
     pass
 
 # =============================================================================
-# CONFIGURATION
+# CONFIGURATION & SECRETS
 # =============================================================================
 
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
@@ -31,8 +33,7 @@ DEFAULT_MAX_PAGES = 5
 API_RATE_LIMIT_DELAY = 0.1
 PROGRESS_LOG_INTERVAL = 20
 
-# Load environment variables (.env file)
-load_dotenv()
+# These are automatically populated by GitHub Secrets in the cloud!
 API_KEY = os.getenv("TMDB_API_KEY")
 AWS_BUCKET = os.getenv("AWS_S3_BUCKET")
 
@@ -117,12 +118,13 @@ def upload_to_s3(data: list[dict], file_name: str):
     if "id" in df.columns:
         df = df.drop_duplicates(subset=["id"])
 
-    # 2. Connect to AWS
+    # 2. Connect to AWS 
+    # (Notice I added a fallback 'eu-central-1' region so it can't crash on None!)
     s3_client = boto3.client(
         's3',
         aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
         aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-        region_name=os.getenv('AWS_REGION')
+        region_name=os.getenv('AWS_REGION', 'eu-central-1') 
     )
 
     # 3. Create the floating RAM container
@@ -147,6 +149,11 @@ def upload_to_s3(data: list[dict], file_name: str):
 if __name__ == "__main__":
     print("🚀 Starting Cloud TMDB Pipeline...")
     
+    # Check if critical secrets are missing before doing any work!
+    if not API_KEY or not AWS_BUCKET:
+        print("❌ ERROR: Missing API_KEY or AWS_BUCKET. Check your .env or GitHub Secrets!")
+        exit(1)
+        
     # 1. Extract
     base_movies = fetch_base_movies(max_pages=DEFAULT_MAX_PAGES)
     movie_ids = [movie["id"] for movie in base_movies]
