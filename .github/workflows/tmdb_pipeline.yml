@@ -29,8 +29,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
-
+          python-version: '3.11'  # <-- Upgraded!
       # 3. Install Cloud Dependencies
       # Notice we swapped Postgres for boto3 (AWS) and dbt-databricks!
       - name: Install dependencies
