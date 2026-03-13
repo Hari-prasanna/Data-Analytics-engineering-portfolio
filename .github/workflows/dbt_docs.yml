@@ -5,6 +5,7 @@ on:
   push:
     branches: ["main"]
     paths: 
+      - 'TMDB-ELT/cloud_pipeline/**'
       - "TMDB-ELT/databricks_cloud/**"
   workflow_dispatch: 
 
