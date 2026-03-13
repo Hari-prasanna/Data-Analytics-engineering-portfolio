@@ -1,0 +1,10 @@
+version 2:
+
+sources:
+  - name: tmdb_bronze
+    catalog: portfolio_tmdb
+    schema: bronze
+    tables:
+      - name: raw_movies
+      - name: raw_movie_details
+      - name: raw_movie_credits

@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_movies
+    description: "One row per movie."
+    columns:
+      - name: movie_id
+        description: "Primary key."
+        tests:
+         - unique
+         - not_null
+
+  - name: fact_movie_financials
+    description: "Metrics and ROI calculations."
+    columns:
+      - name: movie_id
+        description: "Foreign key linking to dim_movie."
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_movie')
+              field: movie_id
+  
+  - name: dim_genre
+    description: "Unpacked genre IDs of the movies."
+    columns:
+      - name: genre_id
+        description: "Genre identifier."
+        tests:
+          - not_null
