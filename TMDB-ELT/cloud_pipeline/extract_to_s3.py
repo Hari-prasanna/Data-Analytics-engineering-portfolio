@@ -14,7 +14,11 @@ from io import BytesIO
 import pandas as pd
 import requests
 import boto3
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # =============================================================================
 # CONFIGURATION
