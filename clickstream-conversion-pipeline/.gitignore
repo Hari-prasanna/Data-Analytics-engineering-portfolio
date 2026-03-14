@@ -1,0 +1,11 @@
+# Ignore the kitchen
+.venv/
+__pycache__/
+
+# Ignore massive data files
+raw_data/
+*.csv
+*.parquet
+
+# Ignore secrets
+.env
