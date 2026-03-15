@@ -1,5 +1,14 @@
-pyspark==3.5.0
-pytest==8.0.0
-black==24.2.0
-dbt-databricks==1.7.3
-python-dotenv==1.0.1
+# Processing engine
+pyspark==3.5.1
+
+# Testing
+pytest==8.2.0
+
+# Code formatter
+black==24.4.2
+
+# dbt for Databricks
+dbt-databricks==1.8.0
+
+# Kaggle dataset downloader
+kaggle==1.6.14

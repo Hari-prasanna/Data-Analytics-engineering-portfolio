@@ -1,0 +1,36 @@
+# The name shown in GitHub's Actions tab
+name: CI — ShopStream clickstream pipeline
+
+# TRIGGER: run this workflow when a Pull Request targets the main branch
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    # THE MACHINE: GitHub spins up a fresh Ubuntu server for this
+    runs-on: ubuntu-latest
+
+    steps:
+      # STEP 1: Download your repo code onto the fresh server
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # STEP 2: Install Python 3.11 on that server
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # STEP 3: Install all your pinned libraries from requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # STEP 4: Check code formatting — fails if anyone wrote messy code
+      - name: Check code formatting
+        run: black --check src/ tests/
+
+      # STEP 5: Run all unit tests — fails if any test breaks
+      - name: Run unit tests
+        run: pytest tests/ -v
