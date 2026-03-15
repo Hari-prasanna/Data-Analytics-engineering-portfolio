@@ -1,14 +1,17 @@
-# Processing engine
+# Processing & Memory
 pyspark==3.5.1
+pandas==2.2.2
 
-# Testing
-pytest==8.2.0
+# Cloud & API Ingestion
+boto3==1.34.144
+kaggle==1.6.14
 
-# Code formatter
-black==24.4.2
-
-# dbt for Databricks
+# Transformation & Modeling
 dbt-databricks==1.8.0
 
-# Kaggle dataset downloader
-kaggle==1.6.14
+# Environment & Config
+python-dotenv==1.0.1
+
+# Testing & Formatting
+pytest==8.2.0
+black==24.4.2
