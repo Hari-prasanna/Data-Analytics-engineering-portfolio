@@ -8,7 +8,7 @@ Welcome to my portfolio! Here you will find end-to-end data and analytics engine
 
 ### 1. [Oracle to Google Sheets Automation](./work-related/oracle-sheets-looker-etl)
 * **Tech:** PySpark, Databricks, Oracle SQL, Google Sheets API.
-* **Summary:** Automated a critical inventory reporting process, reducing manual work from 20 - 40 mins/day to <1 min.
+* **Summary:** Automated a critical inventory reporting process, reducing manual work from 100 mins/day to <10 min.
 * **Key Skills:** Data Extraction, Cloud Scheduling, Alerting, Process Automation.
 
 ---
