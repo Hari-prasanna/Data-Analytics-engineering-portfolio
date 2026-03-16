@@ -1,49 +1,89 @@
-# 🎬 TMDB Analytics Engine: Modern Data Stack Pipeline
+# 🎬 TMDB Analytics Engine: Local to Cloud Data Lakehouse
 
-An end-to-end ELT pipeline that extracts movie and financial data from the TMDB API, loads it into a PostgreSQL data warehouse, and models it for analytics using dbt. The entire workflow is protected by a custom GitHub Actions CI/CD pipeline.
+**An end-to-end ELT (Extract, Load, Transform) pipeline that extracts movie and financial data from the TMDB API.** Originally built on a local PostgreSQL warehouse, this project was successfully migrated to an enterprise-grade Cloud Data Lakehouse architecture to improve scalability, security, and orchestration. The entire workflow is protected by a custom GitHub Actions CI/CD pipeline.
 
-> 🔍 **Live Interactive Documentation:** [View the dbt Data Lineage & Docs Here](https://Hari-prasanna.github.io/Data-Analytics-engineering-portfolio/)
+> 🔍 **Live Interactive Documentation:** [View the dbt Data Lineage & Docs Here](https://hari-prasanna.github.io/Data-Analytics-engineering-portfolio/#!/overview)
 
-## 🏗️ Architecture
+---
 
-1. **Extract & Load (Python):** Connects to the TMDB REST API, handles pagination and rate limits, processes the JSON responses via Pandas, and loads the raw data into PostgreSQL.
-2. **Transform (dbt):** Cleans and models the raw data into a dimensional Star Schema (e.g., `fact_movie_financials`) for downstream BI tools.
-3. **CI/CD (GitHub Actions):** An automated "Traffic Cop" that spins up a temporary Postgres database, runs the Python extraction, and executes `dbt build` to test code integrity on every Pull Request.
+## 🛠️ Tech Stack Overview
 
-## 🛠️ Tech Stack
+| Category | Technologies Used |
+| :--- | :--- |
+| **Data Storage** | AWS S3, PostgreSQL *(Legacy)* |
+| **Compute & Governance** | Databricks, Unity Catalog, Delta Lake |
+| **Data Transformation** | dbt (`dbt-databricks`, `dbt-postgres`) |
+| **Orchestration** | Apache Airflow *(Dockerized)* |
+| **CI/CD & Security** | GitHub Actions, GitHub Environments |
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![PostgreSQL](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white)
-![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+---
 
-* **Data Extraction:** Python (Requests API, Pandas)
-* **Data Warehouse:** PostgreSQL
-* **Data Transformation:** dbt (Data Build Tool)
-* **CI/CD & Security:** GitHub Actions, GitHub Environments
+## 🏗️ Architecture Evolution
 
-## 🧠 What I Learned
+### V2: Cloud Data Lakehouse *(Current)*
+This modern architecture decouples storage from compute, utilizing the cloud for highly scalable data processing.
 
-Building this project transitioned my skills from writing standalone scripts to architecting enterprise-grade pipelines. Key takeaways include:
+1. **Extract (Python & S3):** Connects to the TMDB REST API, handles pagination, and uses `io.BytesIO` buffers to stream data directly into AWS S3 as Parquet files, bypassing local disk I/O entirely.
+2. **Load (Databricks):** Databricks reads the S3 external location and lands the data into a Unity Catalog Bronze layer as a highly efficient Delta Table.
+3. **Transform (dbt-databricks):** Cleans and models the raw data into a dimensional Star Schema (Silver/Gold layers) using Databricks Serverless compute.
+4. **Orchestrate (Apache Airflow):** A containerized Airflow environment manages the DAG execution, ensuring Python extraction and dbt transformations run in perfect sequence.
 
-* **Enterprise CI/CD:** Designed a GitHub Actions workflow using `paths` filtering to only trigger when specific monorepo files change, saving cloud compute time.
-* **Security Best Practices:** Moved away from hardcoded credentials and repository secrets, implementing strict **GitHub Environments** (`tmdb-production`) to isolate database credentials and API keys.
-* **Advanced Git Workflow:** Mastered monorepo organization, utilizing `git mv` for keeping commit history, resolving merge conflicts via `git pull --rebase`.
-* **Data Modeling:** Built reliable, tested data models using dbt, enforcing data quality rules before the data reaches the presentation layer.
+### V1: Local Modern Data Stack *(Legacy)*
+The original proof-of-concept demonstrating a robust, localized data pipeline.
 
-## 🚀 How to Run Locally
+1. **Extract & Load (Python):** Python scripts processed the JSON responses via Pandas and loaded the raw data directly into a local PostgreSQL database.
+2. **Transform (dbt-postgres):** Modeled the Postgres tables into a dimensional Star Schema optimized for downstream BI tools.
+3. **CI/CD (GitHub Actions):** An automated "Traffic Cop" that spins up a temporary Postgres database, runs the Python extraction, and executes `dbt build` to rigorously test code integrity on every Pull Request.
 
-1. Clone the repository and navigate to the `TMDB-ELT` folder.
-2. Create a `.env` file with your credentials:
-   ```text
-   TMDB_API_KEY=your_api_key
-   DB_USER=postgres
-   DB_PASSWORD=your_password
-   DB_NAME=postgres
-   DB_HOST=localhost
-   DB_PORT=5432
-    ```
-3. Install dependencies: pip install -r requirements.txt (or manually install pandas, sqlalchemy, dbt-postgres, etc.).
-4. Run the Python extraction: python load_movies.py
-5. Run the dbt models: cd Movie_data_transformation && dbt build
+---
+
+## 🧠 Key Technical Achievements & Learnings
+
+Building and migrating this project bridged the gap between writing standalone scripts and architecting enterprise-grade cloud pipelines.
+
+| Achievement / Concept | Description & Impact |
+| :--- | :--- |
+| **Cloud Migration & Decoupled Architecture** | Successfully separated storage (AWS S3) from compute (Databricks). Configured AWS IAM roles and Databricks External Locations to securely pass data between cloud providers. |
+| **In-Memory Data Streaming** | Engineered an Out-Of-Memory (OOM) proof ingestion script using Python's `io.BytesIO` and `boto3` to stream API data directly to S3 without writing to the local hard drive. |
+| **Workflow Orchestration** | Implemented Apache Airflow to centralize pipeline execution, utilizing a "Clean Room" strategy via `BashOperators` to isolate Python virtual environments and prevent dependency conflicts. |
+| **CI/CD Optimization** | Designed a GitHub Actions workflow using paths filtering to only trigger when specific monorepo files change, drastically saving cloud compute time. |
+| **Security Best Practices** | Eliminated hardcoded credentials by implementing strict GitHub Environments to isolate database credentials, AWS keys, and Databricks tokens. |
+| **Data Modeling** | Built reliable, tested data models using dbt, enforcing strict data quality rules before the data reaches the presentation layer. |
+
+---
+
+## 🚀 How to Run Locally (V1 Postgres Version)
+
+*Note: The V2 Cloud architecture requires AWS and Databricks workspace access. To run the legacy local version, follow the steps below.*
+
+**1. Clone the repository and navigate to the project folder:**
+```bash
+git clone <repository-url>
+cd TMDB-ELT
+```
+
+**2. Create a `.env` file in the root directory with your credentials:**
+```env
+TMDB_API_KEY=your_api_key
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_NAME=postgres
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+**3. Install the required dependencies:**
+```bash
+pip install -r requirements.txt
+# Alternatively, manually install: pandas, sqlalchemy, dbt-postgres, etc.
+```
+
+**4. Execute the pipeline:**
+```bash
+# Run the Python extraction
+python load_movies.py
+
+# Run the dbt models
+cd Movie_data_transformation
+dbt build
+```
