@@ -4,10 +4,13 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'clickstream-conversion-pipeline/**'
   push:
     branches:
       - main
-
+    paths:
+      - 'clickstream-conversion-pipeline/**'
 jobs:
   test-and-lint:
     runs-on: ubuntu-latest
