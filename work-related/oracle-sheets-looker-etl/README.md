@@ -6,7 +6,7 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 
 ## 📋 Project Context: The Challenge
-**Situation:** Warehouse operations teams at Ludwigsfelde (LUU) were spending **20–40 minutes per shift** manually extracting heavy reports (>70MB) from the legacy TGW Infosystem to track dangerous goods.
+**Situation:** Warehouse operations teams at Ludwigsfelde (LUU) were spending **100 minutes per day** manually extracting heavy reports (>70MB) from the legacy TGW Infosystem and importing to Google-sheets to track dangerous goods.
 
 **The Pain Points:**
 * **Operational Bottleneck:** Manual data retrieval was repetitive and delayed critical decision-making at shift starts.
@@ -37,7 +37,7 @@ graph LR
 
 | Metric | Before (Manual) | After (Automated) |
 | :--- | :--- | :--- |
-| **Update Time** | 20–40 Minutes | **< 1 Minute** |
+| **Update Time** | 100 mins/day | **< 10 mins/day** |
 | **Reliability** | Prone to human error | **99.9% Uptime** |
 | **Data Freshness** | Stale by hours | **Real-time (Shift start)** |
 | **Manual Effort** | High (Repetitive) | **Zero (Fully Autonomous)** |
