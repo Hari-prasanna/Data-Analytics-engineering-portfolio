@@ -33,5 +33,9 @@ models:
   shopstream_dbt:
     staging:
       +schema: bronze
+    silver:
+      +schema: silver
+    gold:
+      +schema: gold
 flags:
   use_materialization_v2: True
