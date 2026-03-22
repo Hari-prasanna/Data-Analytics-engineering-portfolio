@@ -21,3 +21,6 @@ dbt_project/logs/
 
 # macOS invisible file — not part of your project
 .DS_Store
+
+# Databricks Asset Bundle hidden folder (we will generate this soon)
+.databricks/

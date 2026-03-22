@@ -1,0 +1,359 @@
+/* ============================================================
+   Teal + Warm Accents Theme — Hari Prasanna Portfolio
+   ============================================================ */
+
+:root {
+  --hp-teal: #1D9E75;
+  --hp-teal-light: #E1F5EE;
+  --hp-teal-dark: #085041;
+  --hp-coral: #D85A30;
+  --hp-coral-light: #FAECE7;
+  --hp-coral-dark: #712B13;
+  --hp-amber: #BA7517;
+  --hp-amber-light: #FAEEDA;
+  --hp-amber-dark: #854F0B;
+  --hp-purple: #534AB7;
+  --hp-purple-light: #EEEDFE;
+  --hp-purple-dark: #3C3489;
+  --hp-blue: #185FA5;
+  --hp-blue-light: #E6F1FB;
+  --hp-blue-dark: #0C447C;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0F6E56;
+  --md-accent-fg-color: #1D9E75;
+  --md-primary-fg-color--light: #E1F5EE;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1D9E75;
+  --md-accent-fg-color: #5DCAA5;
+  --md-primary-fg-color--light: #04342C;
+}
+
+/* -- Hero Section -------------------------------------------- */
+.hp-hero {
+  text-align: center;
+  padding: 3rem 1rem 2.5rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.hp-hero__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--hp-teal);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+}
+
+.hp-hero__title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+}
+
+.hp-hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0 0 1.5rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+
+.hp-hero__links {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.hp-hero__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: 99px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hp-hero__links a:hover {
+  border-color: var(--hp-teal);
+  color: var(--hp-teal);
+  background: rgba(29, 158, 117, 0.08);
+}
+
+/* -- Section Headings ---------------------------------------- */
+.hp-section-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--lighter);
+  text-transform: uppercase;
+  margin: 2.5rem 0 0.85rem;
+  font-weight: 500;
+}
+
+/* -- Tech Stack Pills ---------------------------------------- */
+.hp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.hp-pill {
+  font-size: 0.82rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 99px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.hp-pill--lang { background: var(--hp-teal-light); color: var(--hp-teal-dark); }
+.hp-pill--eng  { background: var(--hp-coral-light); color: var(--hp-coral-dark); }
+.hp-pill--infra { background: var(--hp-purple-light); color: var(--hp-purple-dark); }
+.hp-pill--bi   { background: var(--hp-amber-light); color: var(--hp-amber-dark); }
+.hp-pill--orch { background: var(--hp-coral-light); color: var(--hp-coral-dark); }
+
+[data-md-color-scheme="slate"] .hp-pill--lang  { background: rgba(29,158,117,0.15);  color: #5DCAA5; }
+[data-md-color-scheme="slate"] .hp-pill--eng   { background: rgba(216,90,48,0.15);   color: #F0997B; }
+[data-md-color-scheme="slate"] .hp-pill--infra { background: rgba(127,119,221,0.15); color: #AFA9EC; }
+[data-md-color-scheme="slate"] .hp-pill--bi    { background: rgba(186,117,23,0.15);  color: #FAC775; }
+[data-md-color-scheme="slate"] .hp-pill--orch  { background: rgba(216,90,48,0.15);   color: #F0997B; }
+
+/* -- Project Card Grid --------------------------------------- */
+.hp-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .hp-card-grid { grid-template-columns: 1fr; }
+}
+
+.hp-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  transition: border-color 0.2s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.hp-card:hover {
+  border-color: var(--hp-teal);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.hp-card--active { border: 2px solid var(--hp-teal); }
+.hp-card--work   { border-left: 3px solid var(--hp-amber); }
+
+.hp-card--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 3px solid var(--hp-amber);
+}
+
+.hp-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.hp-card__title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.hp-card__desc {
+  font-size: 0.88rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.hp-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.hp-card__tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+}
+
+/* -- Status Badges ------------------------------------------- */
+.hp-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 99px;
+  white-space: nowrap;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.hp-badge--done     { background: var(--hp-teal-light);   color: var(--hp-teal-dark); }
+.hp-badge--progress { background: var(--hp-blue-light);   color: var(--hp-blue); }
+.hp-badge--infra    { background: var(--hp-purple-light); color: var(--hp-purple); }
+.hp-badge--active   { background: var(--hp-teal-light);   color: var(--hp-teal-dark); }
+.hp-badge--work     { background: var(--hp-amber-light);  color: var(--hp-amber-dark); }
+
+[data-md-color-scheme="slate"] .hp-badge--done     { background: rgba(29,158,117,0.15);  color: #5DCAA5; }
+[data-md-color-scheme="slate"] .hp-badge--progress { background: rgba(55,138,221,0.15);  color: #85B7EB; }
+[data-md-color-scheme="slate"] .hp-badge--infra    { background: rgba(127,119,221,0.15); color: #AFA9EC; }
+[data-md-color-scheme="slate"] .hp-badge--active   { background: rgba(29,158,117,0.15);  color: #5DCAA5; }
+[data-md-color-scheme="slate"] .hp-badge--work     { background: rgba(186,117,23,0.15);  color: #FAC775; }
+
+/* -- Callout Box --------------------------------------------- */
+.hp-callout {
+  margin: 2.5rem 0 1rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--hp-coral);
+  background: rgba(216, 90, 48, 0.04);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.6;
+}
+
+[data-md-color-scheme="slate"] .hp-callout {
+  background: rgba(216, 90, 48, 0.08);
+}
+
+.hp-callout code {
+  font-size: 0.82rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  background: var(--md-code-bg-color);
+}
+
+/* -- Placeholder text ---------------------------------------- */
+.hp-placeholder {
+  font-size: 0.95rem;
+  color: var(--md-default-fg-color--lighter);
+  margin: 0;
+}
+
+/* -- Hide default h1 on landing page ------------------------- */
+.md-content .hp-landing-page > h1:first-child {
+  display: none;
+}
+
+
+/* -- Header readability fix ---------------------------------- */
+[data-md-color-scheme="slate"] .md-header {
+  background: #0d2b22;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background: #0a2219;
+}
+
+/* -- Compact Hero -------------------------------------------- */
+.hp-hero {
+  text-align: center;
+  padding: 1.5rem 1rem 1.2rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.hp-hero__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--hp-teal);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+}
+
+.hp-hero__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.2rem;
+}
+
+.hp-hero__subtitle {
+  font-size: 0.95rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0 0 0.8rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* -- Certification Row --------------------------------------- */
+.hp-cert-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+
+.hp-cert-row:hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+.hp-cert-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  background: rgba(55, 138, 221, 0.1);
+}
+
+[data-md-color-scheme="default"] .hp-cert-icon {
+  background: var(--hp-blue-light);
+}
+
+.hp-cert-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.hp-cert-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0 0 0.1rem;
+}
+
+.hp-cert-org {
+  font-size: 0.82rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+}
