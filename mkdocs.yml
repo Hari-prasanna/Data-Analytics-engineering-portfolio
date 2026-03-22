@@ -1,0 +1,108 @@
+site_name: Hari Prasanna | Data Engineer
+site_url: https://hari-prasanna.github.io/
+site_description: Data Engineering Portfolio — End-to-end data lifecycle specialist
+site_author: Hari Prasanna
+
+repo_url: https://github.com/Hari-prasanna/Data-Analytics-engineering-portfolio
+repo_name: Hari-prasanna/Portfolio
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/database
+
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+nav:
+  - Home: index.md
+  - Projects:
+      - projects/index.md
+      - Personal:
+          - TMDB ELT Pipeline: projects/tmdb-elt.md
+          - Clickstream Pipeline: projects/clickstream-pipeline.md
+          - Orchestration Framework: projects/orchestration.md
+          - CI/CD Pipelines: projects/cicd.md
+      - Work:
+          - Oracle → Sheets → Looker ETL: projects/oracle-sheets-looker-etl.md
+  - Experience: experience.md
+  - Blog: blog.md
+  - Resume: resume.md
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Hari-prasanna
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/hariprasannaravichandran/
+      name: LinkedIn
+    - icon: fontawesome/solid/envelope
+      link: mailto:hariprasannaravichandran@gmail.com
+      name: Email
+
+copyright: "&copy; 2025 Hari Prasanna — Built with MkDocs Material"
