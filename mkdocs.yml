@@ -15,24 +15,26 @@ theme:
     logo: material/database
 
   palette:
-    - scheme: slate
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: red
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.expand
     - navigation.top
     - toc.follow
     - search.suggest
@@ -44,7 +46,7 @@ theme:
   font:
     text: Inter
     code: JetBrains Mono
-
+    
 nav:
   - Home: index.md
   - Projects:

@@ -11,7 +11,6 @@ hide:
 
 <!-- Hero Section -->
 <div class="hp-hero" markdown>
-<div class="hp-hero__avatar">HP</div>
 <p class="hp-hero__title">Hari Prasanna</p>
 <p class="hp-hero__subtitle">Data Engineer — End-to-end data lifecycle specialist with a learn-by-doing philosophy.</p>
 <div class="hp-hero__links">
