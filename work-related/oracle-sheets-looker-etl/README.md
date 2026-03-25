@@ -1,6 +1,6 @@
 # 🚀 Oracle to Google Sheets: ETL Pipeline
 
-![PySpark](https://img.shields.io/badge/Apache%20Spark-E25A1C?style=flat&logo=apachespark&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
@@ -17,7 +17,7 @@
 
 ## 💡 The Solution
 
-I engineered a **Databricks-based ETL pipeline** using **PySpark** for distributed processing and **Task Orchestration** for reliability. The system queries the Oracle database directly, processes the data in the cloud, and pushes only the necessary insights to the dashboard.
+I engineered a **Databricks-based ETL pipeline** using **Python and Pandas** for fast, in-memory processing and **Task Orchestration** for reliability. The system queries the Oracle database directly using SQLAlchemy, processes the data cleanly in the cloud, and pushes only the necessary insights to the dashboard.
 
 ### 🏗️ Architecture & Workflow
 
@@ -27,7 +27,7 @@ The pipeline utilizes **Databricks Workflows** to manage dependencies. The notif
 graph LR
     A[Oracle DB] -->|JDBC Read| B
     
-    subgraph Task 1: PySpark ETL
+    subgraph Task 1: Pandas ETL
     B[Transform & Filter]
     end
     
@@ -50,12 +50,11 @@ graph LR
 
 ## 🛠️ Technical Deep Dive
 
-### 1. Distributed Processing (PySpark)
+### 1. Memory-Optimized Extraction & Processing (Pandas & SQLAlchemy)
+The legacy system struggled with the raw source data (approx. 700MB per shift), which frequently caused browser crashes and AppScript timeouts. I engineered an optimized, in-memory Python pipeline to solve this.
 
-Moved from standard Pandas to **PySpark** to ensure future scalability and faster processing times.
-
-* **Optimized Reads:** Leveraged JDBC to query raw inventory data directly from Oracle.
-* **Transformation:** Used Spark DataFrames for regex-based filtering (`^\d`) to clean the dataset before it ever hits the visualization layer.
+* **Query Pushdown:** Instead of loading the entire 700MB dataset into memory, I leveraged `SQLAlchemy` to pass parameterized SQL queries (`:category`) directly to the Oracle engine. By pushing the filtering logic down to the database level, the pipeline only extracts the ~10,000 highly relevant rows over the network, drastically reducing memory overhead and execution time.
+* **Vectorized Transformations:** Once the optimized payload hits the Databricks Driver, the script uses Pandas vectorized string operations (`.str.match(r'^\d')`) for lightning-fast regex data cleaning before writing to the Google Sheets API.
 
 ### 2. Job Orchestration & Dependencies
 
