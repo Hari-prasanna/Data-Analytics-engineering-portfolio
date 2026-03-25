@@ -1,0 +1,26 @@
+bundle:
+  name: shopstream-clickstream-pipeline
+
+resources:
+  jobs:
+    shopstream_daily_run:
+      name: "Shopstream Daily dbt Build"
+      
+      tasks:
+        - task_key: run_dbt_models
+          dbt_task:
+            project_directory: ./shopstream_dbt
+            commands:
+              - "dbt deps"
+              - "dbt build"
+          job_cluster_key: automated_cluster
+
+      job_clusters:
+        - job_cluster_key: automated_cluster
+          new_cluster:
+            spark_version: "14.3.x-scala2.12" 
+            node_type_id: "i3.xlarge"         
+            num_workers: 1                   
+            custom_tags:
+              Project: "Shopstream"
+              Environment: "Production"

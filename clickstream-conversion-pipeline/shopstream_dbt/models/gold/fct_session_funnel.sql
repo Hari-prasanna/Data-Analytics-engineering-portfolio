@@ -1,6 +1,6 @@
 {{ config(
     materialized='incremental',
-    unique_key='user_session',
+    unique_key=['user_session', 'user_id'],
     incremental_strategy='merge'
 ) }}
 
