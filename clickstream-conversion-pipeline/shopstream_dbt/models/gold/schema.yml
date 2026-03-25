@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: dim_user
+    description: "Unique user details"
+    columns:
+      - name: user_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    description: "Products and category details"
+    columns:
+      - name: product_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fct_session_funnel
+    description: "Detailed session and conversion funnel events"
+    columns:
+      - name: user_id
+        description: "Foreign key linking to dim_user"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_user')
+              field: user_id
+
+  - name: fct_product_performance
+    description: "Detailed product conversion performance"
+    columns:
+      - name: product_id
+        description: "Foreign key linking to dim_products"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
