@@ -1,133 +1,144 @@
-# Notebook 1: ETL Logic (Hybrid Engine - Fixed for Missing JAR)
+import oracledb
 import gspread
 import json
-import os
-import pytz
 import pandas as pd
+import pytz 
+import time
+import logging
+import os
 from datetime import datetime
-from oauth2client.service_account import ServiceAccountCredentials
-from pyspark.sql.functions import col
 from sqlalchemy import create_engine, text
 
 # ==========================================
-# 1. WIDGETS & CONFIGURATION
+# 0. SETUP LOGGING & RUNTIME WIDGETS
 # ==========================================
-# Create input boxes in the UI
-dbutils.widgets.text("oracle_secret_path", "/Workspace/Users/hari.prasanna.ravichandran@zalando.de/oracle_to_sheets_project/oracle_secret.json", "1. Oracle Config Path")
-dbutils.widgets.text("google_key_path", "/Workspace/Users/hari.prasanna.ravichandran@zalando.de/oracle_to_sheets_project/google_key.json", "2. Google Key Path")
-dbutils.widgets.text("sheet_id", "1bQ-q1-mo3HqLgYUIe45UL9b1G7UaZ2wWjJhfWLP6DU8", "3. Google Sheet ID")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+logging.getLogger("py4j").setLevel(logging.WARNING)
 
-# Get values
-ORACLE_SECRET_PATH = dbutils.widgets.get("oracle_secret_path")
-GOOGLE_KEY_PATH    = dbutils.widgets.get("google_key_path")
-SHEET_ID           = dbutils.widgets.get("sheet_id")
-
-DATA_TAB_NAME = "JOIN"
-TIME_TAB_NAME = "Block_dash"
+# ONLY ask the user for things that change per run
+dbutils.widgets.text("category", "Beauty", "1. Product Category")
+CATEGORY = dbutils.widgets.get("category")
 
 # ==========================================
-# 2. SQL QUERY
+# 1. LOAD CONFIGURATION
 # ==========================================
-SQL_QUERY = """
-SELECT *
-FROM ZAL_BESTAND
-WHERE "Category" = 'Beauty'
-  AND "Lager" IN ('BGL', 'Finalisierung', 'SZROV','OL_APS','Overstock')
-"""
-
-# ==========================================
-# 3. HELPER FUNCTIONS
-# ==========================================
-def get_oracle_engine():
-    if not os.path.exists(ORACLE_SECRET_PATH):
-        raise FileNotFoundError(f"Missing Oracle Config at: {ORACLE_SECRET_PATH}")
-    with open(ORACLE_SECRET_PATH, 'r') as f:
-        config = json.load(f)
+def load_config():
+    # os.getcwd() gets the current folder the script is running inside
+    current_folder = os.getcwd() 
+    config_path = os.path.join(current_folder, "config.json")
     
-    # Create SQLAlchemy Engine using the Python Driver
+    logger.info(f"⚙️ Loading configuration from current folder")
+    with open(config_path, 'r') as f:
+        return json.load(f)
+
+# ==========================================
+# 2. HELPER FUNCTIONS 
+# ==========================================
+def get_auth_clients():
+    logger.info("🔑 Fetching credentials from Databricks Secrets...")
+    
+    # A. Google Auth
+    google_secret = dbutils.secrets.get(scope="luu_qm_secrets", key="google_auth")
+    gc = gspread.service_account_from_dict(json.loads(google_secret))
+
+    # B. Oracle Auth
+    oracle_config = json.loads(dbutils.secrets.get(scope="luu_qm_secrets", key="oracle_auth"))
     connection_string = (
-        f"oracle+oracledb://{config['user']}:{config['password']}"
-        f"@{config['host']}:{config['port']}/?service_name={config['service']}"
+        f"oracle+oracledb://{oracle_config['user']}:{oracle_config['password']}"
+        f"@{oracle_config['host']}:{oracle_config['port']}/?service_name={oracle_config['service']}"
     )
-    return create_engine(connection_string)
+    return create_engine(connection_string), gc
 
-def get_google_client():
-    if not os.path.exists(GOOGLE_KEY_PATH):
-        raise FileNotFoundError(f"Missing Google Key at: {GOOGLE_KEY_PATH}")
-    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name(GOOGLE_KEY_PATH, scope)
-    return gspread.authorize(creds)
-
-# ==========================================
-# 4. EXECUTION FLOW
-# ==========================================
-try:
-    print("🚀 Starting ETL Job (Hybrid Engine)...")
-    
-    # --- STEP 1: EXTRACT (Python Driver) ---
-    print("📡 Connecting to Oracle (Python Mode)...")
-    engine = get_oracle_engine()
-    
+def extract_from_oracle(engine, sql_path, category):
+    logger.info(f"📂 Reading SQL query & querying Oracle for: {category}...")
+    with open(sql_path, 'r') as file:
+        query = file.read()
+        
     with engine.connect() as connection:
-        pdf_raw = pd.read_sql(text(SQL_QUERY), connection)
+        df = pd.read_sql(text(query), connection, params={"category": category})
     
-    raw_count = len(pdf_raw)
-    print(f"   ✅ Raw Data Extracted: {raw_count} rows.")
+    logger.info(f"✅ Raw Data Extracted: {len(df)} rows.")
+    return df
 
-    if raw_count > 0:
-        # --- STEP 2: TRANSFORM (Switch to Spark) ---
-        print("⚡ Converting to Spark for Transformation...")
+# ==========================================
+# 3. MAIN EXECUTION
+# ==========================================
+def main():
+    logger.info("🚀 STARTING JOB: Oracle -> Sheets -> Calc")
+    berlin_tz = pytz.timezone('Europe/Berlin')
+    current_time = datetime.now(berlin_tz).strftime("%d/%m/%Y %H:%M:%S")
+    
+    try:
+        # Load all our settings from the JSON file
+        cfg = load_config()
         
-        # Create Spark DataFrame (This is the "Magic Move" for your resume)
-        df = spark.createDataFrame(pdf_raw)
+        # --- INITIALIZATION & EXTRACT ---
+        engine, gc = get_auth_clients()
+        df_raw = extract_from_oracle(engine, cfg["file_paths"]["sql_query"], CATEGORY)
+        
+        if len(df_raw) == 0:
+            raise ValueError("Oracle returned 0 rows. Aborting job.")
 
-        print("🔍 Applying Spark Filters...")
-        # Now we use PySpark syntax just like a Big Data Engineer
-        df_filtered = df.filter(col("MainLhm").rlike(r"^\d"))
-        
-        # Select first 22 columns
-        cols_to_keep = df_filtered.columns[:22]
-        df_final = df_filtered.select(cols_to_keep)
+        # --- TRANSFORM ---
+        logger.info("⚙️ Transforming data...")
+        lhm_col = next((col for col in df_raw.columns if col.lower() == "mainlhm"), None)
+        df_clean = df_raw[df_raw[lhm_col].astype(str).str.match(r'^\d')] if lhm_col else df_raw
+        df_clean = df_clean.iloc[:, :22].fillna('')
 
-        # --- STEP 3: LOAD (Google Sheets) ---
-        print("📋 Preparing Upload...")
-        # Convert back to Pandas for GSpread (GSpread doesn't support Spark directly)
-        final_pdf = df_final.toPandas()
-        final_pdf = final_pdf.fillna('')
-        final_count = len(final_pdf)
+        # --- LOAD ---
+        logger.info("📋 Uploading to Sheets...")
+        sh = gc.open_by_key(cfg["google_sheet"]["sheet_id"])
         
-        print(f"📋 Uploading {final_count} rows to Sheets...")
-        client = get_google_client()
-        sh = client.open_by_key(SHEET_ID)
+        worksheet_upload = sh.worksheet(cfg["google_sheet"]["upload_tab"])
+        worksheet_upload.batch_clear(["A:V"])
+        worksheet_upload.update(
+            range_name="A1", 
+            values=[df_clean.columns.values.tolist()] + df_clean.values.tolist()
+        )
         
-        # Clear & Update Data
-        sh.worksheet(DATA_TAB_NAME).batch_clear(["A:V"])
-        sh.worksheet(DATA_TAB_NAME).update(range_name="A1", values=[final_pdf.columns.values.tolist()] + final_pdf.values.tolist())
-        
-        # Update Timestamp
-        berlin_tz = pytz.timezone('Europe/Berlin')
-        current_time = datetime.now(berlin_tz).strftime("%d/%m/%Y %H:%M:%S")
         try:
-            sh.worksheet(TIME_TAB_NAME).update_acell("C2", current_time)
-        except:
-            pass
+            sh.worksheet(cfg["google_sheet"]["time_tab"]).update_acell("C2", current_time)
+        except Exception as e:
+            logger.warning(f"Could not update time tab: {e}")
 
-        # --- SAVE SUCCESS STATE ---
-        print(f"✅ SUCCESS! Saving Task Values: Rows={final_count}")
+        logger.info("⏳ Waiting 5 seconds for Google Sheets formulas to sync...")
+        time.sleep(5) 
+
+        # --- CALCULATE ---
+        logger.info(f"📥 Reading '{cfg['google_sheet']['calc_tab']}' for calculations...")
+        worksheet_calc = sh.worksheet(cfg["google_sheet"]["calc_tab"])
+        raw_data = worksheet_calc.get_all_values()
+        
+        if len(raw_data) <= 1:
+            raise ValueError("Calculation Sheet was empty after sync!")
+
+        # Calculate Total Vol (Index 11 / Col L)
+        df_calc = pd.DataFrame(raw_data[1:], columns=raw_data[0])
+        total_vol = pd.to_numeric(
+            df_calc.iloc[:, 11].astype(str).str.replace(',', '').str.strip(), errors='coerce'
+        ).fillna(0).sum()
+
+        logger.info(f"✅ Total Volume: {total_vol}")
+
+        # --- SUCCESS HANDOFF ---
+        logger.info("💾 Saving Task Values for downstream jobs...")
         dbutils.jobs.taskValues.set(key="status", value="SUCCESS")
-        dbutils.jobs.taskValues.set(key="rows", value=final_count)
+        dbutils.jobs.taskValues.set(key="rows", value=len(df_clean))
+        dbutils.jobs.taskValues.set(key="total_vol", value=float(total_vol))
+        dbutils.jobs.taskValues.set(key="ready_vol", value=float(total_vol))
         dbutils.jobs.taskValues.set(key="run_time", value=current_time)
-        dbutils.jobs.taskValues.set(key="error_msg", value="") 
-    
-    else:
-        raise ValueError("Job ran, but Oracle returned 0 rows.")
+        dbutils.jobs.taskValues.set(key="error_msg", value="")
 
-except Exception as e:
-    # --- SAVE FAILURE STATE ---
-    print(f"❌ FAILED! Error: {str(e)}")
-    dbutils.jobs.taskValues.set(key="status", value="FAILURE")
-    dbutils.jobs.taskValues.set(key="error_msg", value=str(e))
-    dbutils.jobs.taskValues.set(key="rows", value=0)
-    dbutils.jobs.taskValues.set(key="run_time", value="Failed Run")
-    # Raise error so the job marks as failed
-    raise e
+    except Exception as e:
+        logger.error(f"❌ CRITICAL ERROR CAUGHT: {str(e)}")
+        dbutils.jobs.taskValues.set(key="status", value="FAILURE")
+        dbutils.jobs.taskValues.set(key="error_msg", value=str(e))
+        dbutils.jobs.taskValues.set(key="rows", value=0)
+        dbutils.jobs.taskValues.set(key="total_vol", value=0.0)
+        dbutils.jobs.taskValues.set(key="ready_vol", value=0.0)
+        dbutils.jobs.taskValues.set(key="run_time", value=current_time)
+        raise e 
+
+if __name__ == "__main__":
+    main()

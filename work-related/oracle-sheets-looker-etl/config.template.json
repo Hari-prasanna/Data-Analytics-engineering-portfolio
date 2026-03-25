@@ -1,0 +1,16 @@
+{
+    "google_sheet": {
+        "sheet_id": "YOUR_SHEET_ID_HERE",
+        "upload_tab": "sheet_name",
+        "calc_tab": "sheet_name",
+        "time_tab": "sheet_name"
+    },
+    "file_paths": {
+        "sql_query": "/Workspace/Users/YOUR_EMAIL_HERE/LUU-QM-test/Luu_stock_monitor/zal_bestand_query.sql"
+    },
+    "dashboard_links": {
+        "looker_dashboard": "https://lookerstudio.google.com/",
+        "sheet_overview": "https://docs.google.com/spreadsheets/",
+        "sheet_manual": "https://docs.google.com/spreadsheets/d/"
+    }
+}
