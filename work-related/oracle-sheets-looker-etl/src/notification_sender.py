@@ -1,3 +1,4 @@
+# Databricks notebook source
 import requests
 import json
 import logging
@@ -18,10 +19,13 @@ PREVIOUS_TASK_KEY = dbutils.widgets.get("previous_task_name")
 # ==========================================
 # 1. HELPER FUNCTIONS
 # ==========================================
+import os
+
 def load_config():
-    """Reads the static configuration from the JSON file."""
-    # Note: Use Option 3 (Relative Path) if using Databricks Repos!
-    config_path = os.path.join(os.getcwd(), "config.json") 
+    """Reads the static configuration using relative paths for DABs."""
+    config_path = os.path.join(os.getcwd(), "config.json")
+    
+    logger.info(f"⚙️ Loading configuration from {config_path}")
     with open(config_path, 'r') as f:
         return json.load(f)
 
