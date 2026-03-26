@@ -7,52 +7,27 @@ resources:
     luu_beauty_stock_update:
       name: LUU_Beauty_Stock_Update
       
-      # ⏱️ 1. SCHEDULE CONFIGURATION
       schedule:
         quartz_cron_expression: "0 40 5,14 ? * MON-FRI"
         timezone_id: "Europe/Berlin" 
         pause_status: "UNPAUSED"
 
-      # 💻 2. CLUSTER CONFIGURATION
-      job_clusters:
-        - job_cluster_key: Job_cluster
-          new_cluster:
-            spark_version: 17.3.x-scala2.13
-            node_type_id: m6gd.large
-            num_workers: 0 
-            spark_conf:
-              spark.databricks.cluster.profile: singleNode
-              spark.master: local[*]  # FIXED: Required exactly like this for Single Node
+      # 💻 CLUSTER DEFINITION COMPLETELY REMOVED! (Databricks will use Serverless)
 
-
-      # 🚀 3. TASK DEFINITIONS
       tasks:
-        # --- Task 1: ETL ---
         - task_key: ETL_Task
-          job_cluster_key: Job_cluster
+          # Removed job_cluster_key and libraries
           notebook_task:
-            # FIXED: Updated to your new file name and removed 'source: WORKSPACE'
             notebook_path: ./src/etl_pipeline.py
-          libraries:
-            - pypi:
-                package: oracledb==2.1.2 
-            - pypi:
-                package: gspread==6.1.0
-            - pypi:
-                package: oauth2client==4.1.3
-            - pypi:
-                package: sqlalchemy==2.0.25  # FIXED: Added for the Oracle engine
 
-        # --- Task 2: Notification ---
         - task_key: Notify_Task
           depends_on:
             - task_key: ETL_Task
-          job_cluster_key: Job_cluster
+          # Removed job_cluster_key
           notebook_task:
-            # FIXED: Updated to your new file name and removed 'source: WORKSPACE'
             notebook_path: ./src/notification_sender.py
 
-# 🎯 4. TARGET ENVIRONMENTS
+# 🎯 TARGET ENVIRONMENTS
 targets:
   dev:
     mode: development
