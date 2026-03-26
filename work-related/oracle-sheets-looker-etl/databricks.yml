@@ -1,88 +1,39 @@
-name: Databricks Bundle CI/CD
+# databricks.yml
+bundle:
+  name: luu_beauty_stock_pipeline
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'work-related/oracle-sheets-looker-etl/**'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'work-related/oracle-sheets-looker-etl/**'
-
-jobs:
-  # ==========================================
-  # STAGE 1: PYTHON LINTING & TESTING
-  # ==========================================
-  python-tests:
-    name: 🐍 Code Quality & Tests
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./work-related/oracle-sheets-looker-etl
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10' # Matches Databricks runtime 13.3 LTS
-          cache: 'pip'
-
-      - name: Install Dependencies & CI Tools
-        run: |
-          python -m pip install --upgrade pip
-          # Install your project libraries so imports don't fail
-          pip install -r requirements.txt
-          # Install the testing/formatting tools
-          pip install black flake8 pytest
-
-      - name: 🎨 Format Check (Black)
-        # The --check flag means it will fail the pipeline if files aren't formatted correctly
-        run: black --check src/
-
-      - name: 🕵️ Logic & Syntax Check (Flake8)
-        # This catches undefined variables, unused imports, and syntax errors
-        run: flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
-
-      - name: 🧪 Run Unit Tests (Pytest)
-        # Using your '|| true' trick so it doesn't block deployments while you build out the tests folder
-        run: pytest tests/ || true
+resources:
+  jobs:
+    luu_beauty_stock_update:
+      name: LUU_Beauty_Stock_Update
+      
+      schedule:
+        quartz_cron_expression: "0 40 5,14 ? * MON-FRI"
+        timezone_id: "Europe/Berlin" 
+        pause_status: "UNPAUSED"
 
 
-  # ==========================================
-  # STAGE 2: DATABRICKS DEPLOYMENT
-  # ==========================================
-  databricks-deploy:
-    name: 🚀 Deploy to Databricks
-    needs: python-tests # 🛑 CRITICAL: This tells GitHub to WAIT for Stage 1 to pass!
-    if: github.event_name == 'push' # Only deploy on push/merge, not on PR creation
-    runs-on: ubuntu-latest
-    
-    environment: databricks-deploy-test
-    
-    defaults:
-      run:
-        working-directory: ./work-related/oracle-sheets-looker-etl
+      tasks:
+        - task_key: ETL_Task
+ 
+          notebook_task:
+            notebook_path: ./src/etl_pipeline.py
 
-    env:
-      DATABRICKS_HOST: https://adb-YOUR-PERSONAL-ID.cloud.databricks.com 
-      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_SP_CLIENT_ID }}
-      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_SP_CLIENT_SECRET }}
+        - task_key: Notify_Task
+          depends_on:
+            - task_key: ETL_Task
+     
+          notebook_task:
+            notebook_path: ./src/notification_sender.py
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-0c31c458-b8aa.cloud.databricks.com
 
-      - name: Install Databricks CLI
-        uses: databricks/setup-cli@main
-
-      - name: Validate Bundle
-        run: databricks bundle validate
-
-      - name: Deploy to Dev
-        run: databricks bundle deploy -t dev
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-0c31c458-b8aa.cloud.databricks.com
