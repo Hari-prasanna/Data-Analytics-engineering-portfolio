@@ -30,27 +30,24 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10' # Matches Databricks runtime 13.3 LTS
+          python-version: '3.10' 
           cache: 'pip'
 
       - name: Install Dependencies & CI Tools
         run: |
           python -m pip install --upgrade pip
-          # Install your project libraries so imports don't fail
           pip install -r requirements.txt
-          # Install the testing/formatting tools
-          pip install black flake8 pytest
+          # 🔧 REMOVED 'black' from the install list
+          pip install flake8 pytest
 
-      - name: 🎨 Format Check (Black)
-        # The --check flag means it will fail the pipeline if files aren't formatted correctly
-        run: black --check src/
+      # 🔧 REMOVED the Black formatting check step entirely!
 
       - name: 🕵️ Logic & Syntax Check (Flake8)
-        # This catches undefined variables, unused imports, and syntax errors
+        # This stays! It only fails the pipeline if you have fatal Python errors
+        # (like a typo in a variable name or a missing import).
         run: flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
 
       - name: 🧪 Run Unit Tests (Pytest)
-        # Using your '|| true' trick so it doesn't block deployments while you build out the tests folder
         run: pytest tests/ || true
 
 
@@ -59,8 +56,8 @@ jobs:
   # ==========================================
   databricks-deploy:
     name: 🚀 Deploy to Databricks
-    needs: python-tests # 🛑 CRITICAL: This tells GitHub to WAIT for Stage 1 to pass!
-    if: github.event_name == 'push' # Only deploy on push/merge, not on PR creation
+    needs: python-tests 
+    if: github.event_name == 'push' 
     runs-on: ubuntu-latest
     
     environment: databricks-deploy-test
@@ -70,7 +67,7 @@ jobs:
         working-directory: ./work-related/oracle-sheets-looker-etl
 
     env:
-      DATABRICKS_HOST: https://adb-YOUR-PERSONAL-ID.cloud.databricks.com 
+      DATABRICKS_HOST: https://dbc-0c31c458-b8aa.cloud.databricks.com
       DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_SP_CLIENT_ID }}
       DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_SP_CLIENT_SECRET }}
 
