@@ -155,7 +155,7 @@ def main():
 
     except Exception as e:
         logger.error(f"❌ CRITICAL ERROR CAUGHT: {str(e)}")
-        # --- FAILURE HANDOFF ---
+
         dbutils.jobs.taskValues.set(key="status", value="FAILURE")
         dbutils.jobs.taskValues.set(key="error_msg", value=str(e))
         dbutils.jobs.taskValues.set(key="rows", value=0)
@@ -163,7 +163,6 @@ def main():
         dbutils.jobs.taskValues.set(key="ready_vol", value=0.0)
         dbutils.jobs.taskValues.set(key="run_time", value=current_time)
         
-        # Ensure the Databricks UI flags this task as FAILED
         raise e 
 
 if __name__ == "__main__":
