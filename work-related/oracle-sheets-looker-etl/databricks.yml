@@ -13,18 +13,17 @@ resources:
         timezone_id: "Europe/Berlin" 
         pause_status: "UNPAUSED"
 
-      # 💻 2. CLUSTER CONFIGURATION (From your screenshot)
+      # 💻 2. CLUSTER CONFIGURATION
       job_clusters:
         - job_cluster_key: Job_cluster
           new_cluster:
             spark_version: 17.3.x-scala2.13
             node_type_id: m6gd.large
-            num_workers: 0  # Exam Note: 0 workers = Single Node Cluster
+            num_workers: 0 
             spark_conf:
               spark.databricks.cluster.profile: singleNode
-              spark.master: local[*, 4]
-            custom_tags:
-              cost_allocation: "50019562"
+              spark.master: local[*]  # FIXED: Required exactly like this for Single Node
+
 
       # 🚀 3. TASK DEFINITIONS
       tasks:
@@ -32,17 +31,17 @@ resources:
         - task_key: ETL_Task
           job_cluster_key: Job_cluster
           notebook_task:
-            # DABs will automatically upload this local file to the workspace
-            notebook_path: ./src/beauty_stocks.py
-            source: WORKSPACE
+            # FIXED: Updated to your new file name and removed 'source: WORKSPACE'
+            notebook_path: ./src/etl_pipeline.py
           libraries:
-            # Pinning versions to resolve the Databricks UI warning
             - pypi:
                 package: oracledb==2.1.2 
             - pypi:
                 package: gspread==6.1.0
             - pypi:
                 package: oauth2client==4.1.3
+            - pypi:
+                package: sqlalchemy==2.0.25  # FIXED: Added for the Oracle engine
 
         # --- Task 2: Notification ---
         - task_key: Notify_Task
@@ -50,5 +49,18 @@ resources:
             - task_key: ETL_Task
           job_cluster_key: Job_cluster
           notebook_task:
-            notebook_path: ./src/stock_notification_sender.py
-            source: WORKSPACE
+            # FIXED: Updated to your new file name and removed 'source: WORKSPACE'
+            notebook_path: ./src/notification_sender.py
+
+# 🎯 4. TARGET ENVIRONMENTS
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-YOUR-PERSONAL-ID.cloud.databricks.com # Update to your personal host for testing
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-YOUR-PERSONAL-ID.cloud.databricks.com # Update to your personal host for testing

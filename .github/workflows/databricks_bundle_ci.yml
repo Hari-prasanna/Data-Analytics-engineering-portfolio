@@ -1,0 +1,49 @@
+name: Databricks Bundle CI/CD
+
+on:
+  push:
+    branches:
+      - main
+    
+    paths:
+      - 'work-related/oracle-sheets-looker-etl/**'
+  pull_request:
+    branches:
+      - main
+
+    paths:
+      - 'work-related/oracle-sheets-looker-etl/**'
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    
+  
+    environment: databricks-deploy-test
+    
+
+    defaults:
+      run:
+        working-directory: ./work-related/oracle-sheets-looker-etl
+
+
+    env:
+ 
+      DATABRICKS_HOST: https://dbc-0c31c458-b8aa.cloud.databricks.com
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_SP_CLIENT_ID }}
+      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_SP_CLIENT_SECRET }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Validate Bundle
+        run: databricks bundle validate
+
+      - name: Deploy to Dev
+
+        if: github.event_name == 'push'
+        run: databricks bundle deploy -t dev
