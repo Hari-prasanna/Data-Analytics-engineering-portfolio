@@ -1,4 +1,6 @@
 # Databricks notebook source
+# MAGIC %pip install oracledb==2.1.2 gspread==6.1.0 oauth2client==4.1.3 sqlalchemy==2.0.25
+# MAGIC dbutils.library.restartPython()
 import oracledb
 import gspread
 import json
