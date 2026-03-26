@@ -18,11 +18,11 @@ from sqlalchemy import create_engine, text
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Silence the noisy background logs from Py4J and Google APIs
+
 logging.getLogger("py4j").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING) 
 
-# ONLY ask the user for things that change per run
+
 dbutils.widgets.text("category", "Beauty", "1. Product Category")
 CATEGORY = dbutils.widgets.get("category")
 
