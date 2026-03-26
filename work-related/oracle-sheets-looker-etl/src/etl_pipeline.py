@@ -18,11 +18,11 @@ from sqlalchemy import create_engine, text
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-
+# Silence the noisy background logs from Py4J and Google APIs
 logging.getLogger("py4j").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING) 
 
-
+# ONLY ask the user for things that change per run
 dbutils.widgets.text("category", "Beauty", "1. Product Category")
 CATEGORY = dbutils.widgets.get("category")
 
@@ -155,7 +155,7 @@ def main():
 
     except Exception as e:
         logger.error(f"❌ CRITICAL ERROR CAUGHT: {str(e)}")
-
+        # --- FAILURE HANDOFF ---
         dbutils.jobs.taskValues.set(key="status", value="FAILURE")
         dbutils.jobs.taskValues.set(key="error_msg", value=str(e))
         dbutils.jobs.taskValues.set(key="rows", value=0)
@@ -163,6 +163,7 @@ def main():
         dbutils.jobs.taskValues.set(key="ready_vol", value=0.0)
         dbutils.jobs.taskValues.set(key="run_time", value=current_time)
         
+        # Ensure the Databricks UI flags this task as FAILED
         raise e 
 
 if __name__ == "__main__":
