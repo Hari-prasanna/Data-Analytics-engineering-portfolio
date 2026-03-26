@@ -45,7 +45,7 @@ jobs:
       - name: 🕵️ Logic & Syntax Check (Flake8)
         # This stays! It only fails the pipeline if you have fatal Python errors
         # (like a typo in a variable name or a missing import).
-        run: flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        run: flake8 src/ --count --select=E9,F63,F7,F82 --builtins=dbutils,spark,display --show-source --statistics
 
       - name: 🧪 Run Unit Tests (Pytest)
         run: pytest tests/ || true
