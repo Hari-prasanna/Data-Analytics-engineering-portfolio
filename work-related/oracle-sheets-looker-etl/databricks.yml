@@ -58,9 +58,9 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://adb-YOUR-PERSONAL-ID.cloud.databricks.com # Update to your personal host for testing
+      host: https://dbc-0c31c458-b8aa.cloud.databricks.com # Update to your personal host for testing
 
   prod:
     mode: production
     workspace:
-      host: https://adb-YOUR-PERSONAL-ID.cloud.databricks.com # Update to your personal host for testing
+      host: https://dbc-0c31c458-b8aa.cloud.databricks.com # Update to your personal host for testing
