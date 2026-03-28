@@ -19,7 +19,7 @@ jobs:
   test-and-lint:
     runs-on: ubuntu-latest
     
-    
+
     defaults:
       run:
         working-directory: ./clickstream-conversion-pipeline
@@ -73,7 +73,7 @@ jobs:
         uses: databricks/setup-cli@main
 
       - name: Validate Bundle
-        run: databricks bundle validate
+        run: databricks bundle validate -t dev
 
       - name: Deploy to Dev
         run: databricks bundle deploy -t dev

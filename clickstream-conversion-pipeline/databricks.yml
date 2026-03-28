@@ -16,6 +16,7 @@ resources:
 
       tasks:
         - task_key: run_dbt_models
+          existing_cluster_id: "dfb804e6dfdba5f3"
           dbt_task:
             project_directory: ./shopstream_dbt
             commands:
