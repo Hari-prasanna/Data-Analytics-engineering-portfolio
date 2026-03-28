@@ -58,7 +58,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: "./clickstream-conversion-pipeline"
+        working-directory: ./clickstream-conversion-pipeline
 
     env:
       DATABRICKS_HOST: https://dbc-0c31c458-b8aa.cloud.databricks.com
