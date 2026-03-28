@@ -1,7 +1,7 @@
 """
 ingest_to_s3.py
 ---------------
-ShopStream Phase 2 — Ingestion Pipeline
+ShopStream Phase 2 — Ingestion
 Responsibility: Download the Kaggle dataset, specifically extract ONLY 
 the 2019-Oct.csv file to save disk space, stream it to S3, and clean up.
 """
