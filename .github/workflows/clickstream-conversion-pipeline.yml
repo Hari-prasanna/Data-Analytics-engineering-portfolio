@@ -1,4 +1,4 @@
-name: Enterprise CI Pipeline
+name: Enterprise CI/CD Pipeline
 
 on:
   pull_request:
@@ -11,11 +11,15 @@ on:
       - main
     paths:
       - 'clickstream-conversion-pipeline/**'
+
 jobs:
+  # ==========================================
+  # STAGE 1: TESTING & LINTING (CI)
+  # ==========================================
   test-and-lint:
     runs-on: ubuntu-latest
     
-    # THE FIX: Tell the robot to step inside this specific folder first!
+    
     defaults:
       run:
         working-directory: ./clickstream-conversion-pipeline
@@ -40,3 +44,36 @@ jobs:
       - name: The Logic Inspector (Pytest)
         # Adding '|| true' so it doesn't crash if we haven't written tests yet
         run: pytest tests/ || true
+
+  # ==========================================
+  # STAGE 2: DATABRICKS DEPLOYMENT (CD)
+  # ==========================================
+  databricks-deploy:
+    name: 🚀 Deploy to Databricks
+    needs: test-and-lint 
+    if: github.event_name == 'push' 
+    runs-on: ubuntu-latest
+    
+    environment: databricks-deploy-test 
+    
+    defaults:
+      run:
+        working-directory: ./clickstream-conversion-pipeline t
+
+    env:
+      DATABRICKS_HOST: https://dbc-0c31c458-b8aa.cloud.databricks.com
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_SP_CLIENT_ID }}
+      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_SP_CLIENT_SECRET }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Validate Bundle
+        run: databricks bundle validate
+
+      - name: Deploy to Dev
+        run: databricks bundle deploy -t dev

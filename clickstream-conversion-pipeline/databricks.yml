@@ -1,3 +1,5 @@
+# clickstream-conversion-pipeline/databricks.yml
+
 bundle:
   name: shopstream-clickstream-pipeline
 
@@ -6,21 +8,28 @@ resources:
     shopstream_daily_run:
       name: "Shopstream Daily dbt Build"
       
+      # Added a schedule block, starting paused just like your working example
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?" # 6:00 AM Daily
+        timezone_id: "Europe/Berlin" 
+        pause_status: "PAUSED"
+
       tasks:
         - task_key: run_dbt_models
+          # Notice: No job_cluster_key or new_cluster defined!
           dbt_task:
             project_directory: ./shopstream_dbt
             commands:
               - "dbt deps"
               - "dbt build"
-          job_cluster_key: automated_cluster
 
-      job_clusters:
-        - job_cluster_key: automated_cluster
-          new_cluster:
-            spark_version: "14.3.x-scala2.12" 
-            node_type_id: "i3.xlarge"         
-            num_workers: 1                   
-            custom_tags:
-              Project: "Shopstream"
-              Environment: "Production"
+targets:
+  dev:
+    mode: development
+    workspace: 
+      host: https://dbc-0c31c458-b8aa.cloud.databricks.com
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-0c31c458-b8aa.cloud.databricks.com
