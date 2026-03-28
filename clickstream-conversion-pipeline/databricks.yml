@@ -10,13 +10,12 @@ resources:
       
       # Added a schedule block, starting paused just like your working example
       schedule:
-        quartz_cron_expression: "0 0 6 * * ?" # 6:00 AM Daily
+        quartz_cron_expression: "0 0 6 * * ?" 
         timezone_id: "Europe/Berlin" 
         pause_status: "PAUSED"
 
       tasks:
         - task_key: run_dbt_models
-          # Notice: No job_cluster_key or new_cluster defined!
           dbt_task:
             project_directory: ./shopstream_dbt
             commands:
