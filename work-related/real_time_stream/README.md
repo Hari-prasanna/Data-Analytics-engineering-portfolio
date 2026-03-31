@@ -36,6 +36,10 @@ graph LR
     D -->|TV Token Stream| E[Warehouse Floor Monitors]
 ```
 
+## 📺 Dashboard Preview
+ 
+![Internal Transport KPI Dashboard](assets/Transport_kpis.png)
+
 ## 📈 Key Results & Business Impact
 
 | Metric | Before (Manual) | After (Automated) |
