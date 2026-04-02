@@ -1,0 +1,23 @@
+# Security: Never commit secrets!
+.env
+*.json
+*.pem
+credentials.json
+*.key
+
+# Python Virtual Environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Databricks & dbt
+.databricks/
+target/
+dbt_packages/
+logs/
+
+# Data files (Don't push huge CSVs to GitHub!)
+data/
+*.csv
+*.parquet
