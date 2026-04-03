@@ -1,68 +1,108 @@
+import logging
 import os
-from dotenv import load_dotenv
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-import logging
-import io # Helps us stream data chunk-by-chunk
-from googleapiclient.http import MediaIoBaseDownload # The Google Loading Dock tool
+from googleapiclient.http import MediaIoBaseDownload
+from dotenv import load_dotenv
+import boto3
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 load_dotenv()
 
-def google_authentication():
-    logging.info("connecting to drive")
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+
+def google_authentication(cred_path):
+    logging.info("Preparing badge for the walkie-talkie (service) to talk with google warehouse")
+    
     try:
-        cred_path = os.getenv("GOOGLE_CREDENTIALS_PATH") #key to lib door
-        if not cred_path:
-            logging.error("cred_path is not found in .env")
+        key = cred_path #key
+        if not key:
+            logging.error("oppsie! key path is missing!")
             return None
+        SCOPES = ['https://www.googleapis.com/auth/drive.readonly'] #permission
 
-        SCOPES = ['https://www.googleapis.com/auth/drive.readonly'] #permission to only see the book 
+        badge = service_account.Credentials.from_service_account_file(key, scopes=SCOPES) #badge to use walkie-talkie (service)
 
-        creds = service_account.Credentials.from_service_account_file(cred_path, scopes = SCOPES) #laminated badge with key + permission
-
-        service = build('drive', 'v3', credentials=creds) #hiring a person(walkie talkie) who can talk googlish, and go inside the lib with our badge
-        logging.info("Hepler: Hey I'm in with your badge!")
-
+        service = build('drive', 'v3', credentials= badge) #ẃalkie-talkie acessing by badge (service acc) 
+        logging.info("Py Driver: badge is accessed I can now talk to the warehouse clerk")
         return service
     except Exception as e:
-        logging.error(f"Info from help: Ican't go in beacuse: {e}")
-        return None
+        logging.error(f"Error in block 1: {e}")
 
-def download_files(service, folder_id, file_name, download_path):
+
+def downloading_from_google_drive(service, folder_id, file_name, download_path):
     try:
-        logging.info("starting the downloading process")
+        logging.info(f"Communicationg with Google warehouse clerk to check {folder_id} & {file_name}")
+        query = f"'{folder_id}' in parents and name = '{file_name}' and trashed = false"
 
-        query = f"'{folder_id}' in parents and name = '{file_name}' and trashed = false" #checking the folder and the filename, except trashed
+        results = service.files().list(q=query).execute() #talking to the clerk with walkie-takie and pressing the button(execute) to start searching
+        items = results.get("files",[]) #recived the files, now avoiding crashing by using get that gives empty if nothing is inside
 
-        results = service.files().list(q=query).execute() #communicating with warehouse clerk and pressing executr button to send signal (to start)
-
-        items = results.get("files",[]) #without crashing safely retun empty if the folder is empty by using get
-
-        file_id = items[0]["id"] #getting the unique id for the first file in the folder
+        if not items:
+            logging.error("warehouse clerk to py driver - we don't have the exact file name you mentioned")
+            return None
+        
+        file_id = items[0]["id"] #looking for first file and taking id for requesting content
         logging.info(f"we have got the {items[0]['name']}'s id: {file_id}")
 
-        if not file_id:
-            logging.error("we don't have any files inside the folder")
-            return None
+        request_content = service.files().get_media(fileId=file_id) #requesting content using file_id to transger to local file
 
-        request_content = service.files().get_media(fileId=file_id) #requesting content for a specific file_id
-
-        with open(download_path, 'wb') as local_file: #setting up the local file for write binary - internet lang
-            download = MediaIoBaseDownload(local_file, request_content) #downloading ising the chunk (io) to thee local file from requested content
+        with open(download_path, 'wb') as local_file: #wb: write binary as the csv or other file doesn't support internal lang
+            donwload = MediaIoBaseDownload(local_file, request_content) #downling as batch using Io
 
             done = False # if true immediatley stops the while loop 
             while done is False:
-                status, done = download.next_chunk() # if done status is still false then it is chunked and status helps to track 
-                logging.info(f"Dowloading {int(status.progress()*100)}%") #status gives the decimal values and converted to int(whole number) and mulitiplied to 100 and adding suffix will show how many % is downloaded in each chunk
+                status, done = donwload.next_chunk() # if done status is still false then it is chunked and status helps to track 
+                logging.info(f"py driver loading: {int(status.progress() * 100)}%") #status gives the decimal values and converted to int(whole number) and mulitiplied to 100 and adding suffix will show how many % is downloaded in each chunk
+        logging.info("truck is loaded and ready to head AWS warehouse")   
         return download_path
-            
+    
+
     except Exception as e:
-        logging.error(f"error: {e}")
-        return None
+        logging.error(f"Error in block 2: {e}")
+
+
+def upload_to_s3(local_path, bucket_name, s3_key):
+    try:
+        s3_client = boto3.client('s3') #takes the secret key and ID automatically from .env
+
+        s3_client.upload_file(
+            Filename = local_path,
+            Bucket = bucket_name,
+            Key = s3_key
+        )
+        return True
+
+    except Exception as e:
+        logging.error(f"Error in block 3: {e}")
+
 
 if __name__ == "__main__":
-    service_driver = google_authentication()
-    downloading_files = download_files(service_driver,os.getenv("GOOGLE_DRIVE_FOLDER_ID"),"SFD_Fraud Detection_1.csv",os.getenv("DOWNLOAD_PATH"))
 
+#config
+    cred_path = os.getenv("GOOGLE_CREDENTIALS_PATH")
+    folder_id = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
+    download_path = os.getenv("DOWNLOAD_PATH")
+    file_name = "SFD_Fraud Detection_1.csv"
+    bucket_name = os.getenv("S3_LANDING_BUCKET")
+    s3_key = f"banking-lakehouse/raw_data/{file_name}"
+
+#execution
+    service_delivery = google_authentication(cred_path)
+
+    if service_delivery:
+        download = downloading_from_google_drive(service_delivery,folder_id,file_name,download_path)
+    else:
+        logging.error("Error with google_auth_final block 1")
+    if download:
+        send_to_s3 = upload_to_s3(download, bucket_name, s3_key)
+        logging.info(f"The {file_name} has been successfully unloaded in AWS warehouse inisde {bucket_name}")
+        if os.path.exists(download):
+            os.remove(download)
+            logging.info("local files removed after uploading")
+    else:
+        logging.error("Error with downloading the file")
