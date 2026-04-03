@@ -58,6 +58,7 @@ nav:
           - CI/CD Pipelines: projects/cicd.md
       - Work:
           - Oracle → Sheets → Looker ETL: projects/oracle-sheets-looker-etl.md
+          - Internal KPIs: projects/internal-kpis-tv-dashboard.md
   - Experience: experience.md
   - Blog: blog.md
   - Resume: resume.md
