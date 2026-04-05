@@ -49,6 +49,7 @@ print(f"data is landed in {target_table}")
 # MAGIC
 #MAGIC SELECT *
 # MAGIC FROM banking_lakehouse.bronze.raw_transactions
+# MAGIC ORDER BY step
 # MAGIC LIMIT 10
 
 # COMMAND ----------
