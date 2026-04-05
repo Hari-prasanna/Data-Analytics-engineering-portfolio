@@ -21,3 +21,4 @@ logs/
 data/
 *.csv
 *.parquet
+.databricks

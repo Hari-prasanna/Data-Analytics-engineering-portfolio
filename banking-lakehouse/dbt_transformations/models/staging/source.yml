@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: 'fraud_analysis_data'
+    catalog: 'banking_lakehouse'
+    schema: 'bronze'
+    tables:
+      - name: 'raw_transactions'
