@@ -37,15 +37,8 @@ models:
     # 1. Staging: Raw data from the banking source (Views are best here)
     staging:
       +materialized: view
-      +schema: staging
+      +schema: silver
 
-    # 2. Intermediate: Cleaned & joined data (Internal business logic)
-    intermediate:
-      +materialized: table
-      +file_format: delta # Best performance for Databricks
-      +schema: intermediate
-
-    # 3. Marts: Final tables for the BI layer (Aggregated/Gold layer)
     marts:
       +materialized: table
-      +schema: analytics
+      +schema: gold
