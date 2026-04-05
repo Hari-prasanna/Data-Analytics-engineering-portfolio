@@ -62,3 +62,15 @@ print(f"data is landed in {target_table}")
 # MAGIC
 # MAGIC DROP TABLE IF EXISTS banking_lakehouse.bronze.raw_transactions;
 # MAGIC
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC ALTER SCHEMA banking_lakehouse.bronze
+# MAGIC ENABLE PREDICTIVE OPTIMIZATION;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC
+# MAGIC DESCRIBE DETAIL banking_lakehouse.bronze.raw_transactions
