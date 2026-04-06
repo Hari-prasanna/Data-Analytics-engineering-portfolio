@@ -29,11 +29,17 @@ SELECT
     END) AS is_receiver_merchant,
     ROUND((sender_new_balance + transaction_amount) - sender_old_balance,2) AS sender_balance_error,
     (CASE
-      WHEN receiver_account_id LIKE 'M%' THEN 0
-      ELSE ROUND((receiver_old_balance + transaction_amount) - receiver_new_balance,2)
-      END)receiver_balance_error,
+        WHEN receiver_account_id LIKE 'M%' THEN 0
+        ELSE ROUND((receiver_old_balance + transaction_amount) - receiver_new_balance,2)
+    END) receiver_balance_error,
     (CASE
-      WHEN sender_old_balance = sender_new_balance AND transaction_amount > 0 THEN TRUE ELSE FALSE END) AS is_zero_impact_txn
+        WHEN sender_old_balance = sender_new_balance AND transaction_amount > 0 THEN TRUE 
+        ELSE FALSE 
+    END) AS is_zero_impact_txn,
+    (CASE 
+        WHEN transaction_amount > 10000 THEN 'HIGH_RISK'
+        ELSE 'LOW_RISK'
+    END) AS risk_level
 FROM cleaned
 
 
