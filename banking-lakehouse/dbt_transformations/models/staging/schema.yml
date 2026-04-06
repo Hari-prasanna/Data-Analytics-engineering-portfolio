@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "first staging layer"
+    columns:
+      - name: transaction_id
+        description: "Contains surrogate key by combining 4 columns"
+        tests:
+          - unique
+          - not_null
+      
+      - name: transaction_type
+        description: "standard types like cash_out, payment"
+        tests:
+          - not_null
+          - accepted_values: 
+              arguments: 
+                values: ['CASH_IN', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER']
+
+      - name: transaction_amount
+        description: "transaction amount from sender to receiver"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+
+      - name: is_fraud
+        description: "Boolean flag indicating if the transaction is fraudulent"
+        tests:
+          - not_null
+      
+      - name: is_flagged_fraud
+        description: "Boolean flagged fraudulent"
+        tests:
+          - not_null
