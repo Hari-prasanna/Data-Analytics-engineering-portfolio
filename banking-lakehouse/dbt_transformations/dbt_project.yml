@@ -42,3 +42,9 @@ models:
     marts:
       +materialized: table
       +schema: gold
+
+snapshots:
+  dbt_transformations:
+    # Any snapshot file in the /snapshots folder will inherit these
+    +strategy: check
+    +target_schema: silver_snapshots
