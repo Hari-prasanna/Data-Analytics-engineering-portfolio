@@ -11,7 +11,7 @@ Pipelines running in production at a warehouse facility in Ludwigsfelde, Germany
 | Project | Tech | Impact |
 | :--- | :--- | :--- |
 | [🚀 Oracle to Google Sheets: ETL Pipeline](./work-related/oracle-sheets-looker-etl) | Python, Pandas, SQLAlchemy, Databricks Workflows, Google Chat Cards V2 | **100 → <10 min/day** manual effort · Powers the [DG Monitor Dashboard](https://github.com/Hari-prasanna/BI-Tools-Projects/blob/main/LUU-DG-Monitor/README.md) |
-| [📊 Internal Transport: Real-Time KPI Dashboard](./work-related/internal-transport-kpi-dashboard) | Python, SQLAlchemy, Databricks, Grafana, Google Sheets API | **Saved €10K** vs vendor · Runs at **<€70/month** · Zero-credential TV monitors on warehouse floor |
+| [📊 Internal Transport: Real-Time KPI Dashboard](./work-related/real_time_stream) | Python, SQLAlchemy, Databricks, Grafana, Google Sheets API | **Saved €10K** vs vendor · Runs at **<€70/month** · Zero-credential TV monitors on warehouse floor |
 
 ---
 
