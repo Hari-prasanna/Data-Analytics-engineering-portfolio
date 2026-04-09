@@ -9,6 +9,8 @@
 # COMMAND ----------
 
 
+from pyspark.sql.functions import col, lit, when, current_timestamp
+
 #config
 source_data = "s3://hari-data-engineering-workspace/banking-lakehouse/raw_data/"
 
@@ -25,6 +27,7 @@ df_raw = (spark.readStream
           .option("header","true")
           .option("cloudFiles.schemaLocation", clipboard) # auto loader to save the info to clipbaord
           .load(source_data)
+          .select("*", col("_metadata.file_modification_time").alias("source_modified_at"))
           )
 #writing_as_delta_table
 
@@ -47,7 +50,7 @@ print(f"data is landed in {target_table}")
 
 # MAGIC %sql
 # MAGIC
-#MAGIC SELECT *
+# MAGIC SELECT *
 # MAGIC FROM banking_lakehouse.bronze.raw_transactions
 # MAGIC ORDER BY step
 # MAGIC LIMIT 10
