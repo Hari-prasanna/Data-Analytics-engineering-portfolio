@@ -1,29 +1,25 @@
-WITH stg_transactions AS (SELECT *
-FROM {{ref('stg_transactions')}}),
+{{
+    config(
+        materialized = 'view'
+    )
+}}
 
-
-all_account AS (
-SELECT 
-    sender_account_id AS account_id,
-    risk_level
-FROM stg_transactions
-UNION ALL
-SELECT 
-    receiver_account_id AS account_id,
-    risk_level
-FROM stg_transactions),
-
-
-unique_account_id AS 
-(SELECT 
-    DISTINCT account_id,
-    MAX(risk_level) as risk_level
-FROM all_account
-WHERE account_id IS NOT NULL
-GROUP BY 1)
+WITH snapshot_data AS (
+    SELECT *
+    FROM {{ ref('accounts_snapshot') }}
+)
 
 SELECT 
-    {{dbt_utils.generate_surrogate_key(['account_id'])}} as customer_sk,
-    account_id AS account_natural_key,
-    risk_level
-FROM unique_account_id
+    dbt_scd_id AS customer_sk,          
+    account_natural_key AS customer_id, 
+    risk_level,
+    CASE 
+        WHEN ROW_NUMBER() OVER (PARTITION BY account_natural_key ORDER BY dbt_valid_from ASC) = 1 
+        THEN '1900-01-01 00:00:00'::timestamp 
+        ELSE dbt_valid_from 
+    END AS valid_from,
+    
+    dbt_valid_to AS valid_to,
+    CASE WHEN dbt_valid_to IS NULL THEN TRUE ELSE FALSE END AS is_current
+
+FROM snapshot_data

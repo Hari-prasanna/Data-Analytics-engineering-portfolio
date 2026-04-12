@@ -5,7 +5,7 @@
       target_schema='snapshots',
       strategy='check',
       unique_key='account_natural_key',
-      check_cols=['risk_level', 'last_transaction_at'],
+      check_cols=['risk_level'],
     )
 }}
 
@@ -23,14 +23,19 @@ WITH all_accounts AS (
         CASE WHEN transaction_amount > 10000 THEN 'HIGH_RISK' ELSE 'LOW_RISK' END AS risk_level,
         transaction_timestamp AS last_transaction_at
     FROM {{ ref('stg_transactions') }}
+),
+
+latest_account_state AS (
+    SELECT 
+        account_natural_key,
+        risk_level,
+        last_transaction_at
+    FROM all_accounts
+    WHERE account_natural_key IS NOT NULL
+    
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY account_natural_key ORDER BY last_transaction_at DESC) = 1
 )
 
-SELECT 
-    account_natural_key,
-    risk_level,
-    MAX(last_transaction_at) AS last_transaction_at
-FROM all_accounts
-WHERE account_natural_key IS NOT NULL
-GROUP BY 1, 2
+SELECT * FROM latest_account_state
 
 {% endsnapshot %}
