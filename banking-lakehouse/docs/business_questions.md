@@ -13,11 +13,10 @@
 ## To-Do List
 
 ### Compliance Layer (SCD2 + Time-Travel)
-- [ ] Validate SCD Type 2 dimension captures `effective_from` / `effective_to` correctly
-- [ ] Test time-travel fact join on edge cases (same-day risk flag flips)
-- [ ] Write audit query: high-risk customers + transactions > $10k at flagged moment
+- [x] Validate SCD Type 2 dimension captures `effective_from` / `effective_to` correctly
+- [x] Write audit query: high-risk customers + transactions > $10k at flagged moment
 - [ ] Document the audit query for compliance handoff
 
 ### 📋 Cross-Cutting
-- [ ] Add data quality tests (dbt tests / Great Expectations) on all three layers
+- [x] Add data quality tests (dbt tests / Great Expectations) on all three layers
 - [ ] Set up alerting for pipeline failures
