@@ -2,7 +2,7 @@
 
 ## Stakeholder Matrix
 
-| # | Stakeholder | The Question | How You Solved It |
+| # | Stakeholder | The Question | How I Solved It |
 |---|---|---|---|
 | 1 | **Compliance Officer** *(The Audit Question)* | Did we allow any high-risk customers to move massive amounts of money (>$10k) **exactly while** their internal profile was flagged as "High Risk"? | Built the **SCD Type 2 Dimension** and **Time-Travel Fact Join**. Standard tables would overwrite customer history — SCD2 preserves the exact risk state at the moment of each transaction, so auditors can reconstruct the truth. |
 | 2 | **Fraud Operations Team** *(The Tactical Question)* | Which specific transactions from today look highly suspicious so a human analyst can call the customer right now and freeze the funds? | Calculated custom ML features (e.g. `sender_balance_error`, `is_zero_impact_txn`) to surface anomalous behavior, and building the **Google Sheets Reverse ETL** to push actionable transaction IDs straight into the fraud team's daily queue. |
