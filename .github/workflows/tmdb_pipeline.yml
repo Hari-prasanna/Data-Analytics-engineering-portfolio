@@ -1,14 +1,8 @@
 name: TMDB Databricks Cloud CI/CD
 
+# Disabled — trigger manually from GitHub Actions tab when needed
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - '03-2026-tmdb-elt-pipeline/cloud_pipeline/**'
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - '03-2026-tmdb-elt-pipeline/cloud_pipeline/**'
+  workflow_dispatch:
 
 jobs:
   cloud-deploy:
