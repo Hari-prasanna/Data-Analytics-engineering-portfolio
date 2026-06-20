@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: event_data
+    catalog: shopstream
+    schema: raw
+    tables:
+      - name: raw_events

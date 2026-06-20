@@ -1,21 +1,41 @@
-# Ignore Mac system files
+# ── macOS ──────────────────────────────────────────────────────────────────────
 .DS_Store
 **/.DS_Store
 
-# Ignore Python environments
+# ── Python ─────────────────────────────────────────────────────────────────────
 venv/
-venv
+.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+
+# ── Secrets & credentials ──────────────────────────────────────────────────────
 .env
+**/.env
+credentials.json
+**/credentials.json
+config.json
+# keep .env.example files (templates only — never the real values)
 
-# Ignore dbt logs and target folders (these get massive!)
-logs/
+# ── dbt ────────────────────────────────────────────────────────────────────────
 target/
-dbt_packages/.DS_Store
-.DS_Store
+logs/
+dbt_packages/
 
-# Airflow Virtual Environments & Secrets
-orchestration/include/TMDB-ELT/tmdb_env/
-orchestration/include/TMDB-ELT/dbt_env/
-orchestration/include/TMDB-ELT/.env
+# ── Airflow (Astronomer) ───────────────────────────────────────────────────────
+03-2026-airflow-orchestration/include/TMDB-ELT/tmdb_env/
+03-2026-airflow-orchestration/include/TMDB-ELT/dbt_env/
+03-2026-airflow-orchestration/include/TMDB-ELT/.env
 
+# ── IDE ────────────────────────────────────────────────────────────────────────
+.vscode/
+**/.vscode/
+
+# ── Claude Code ────────────────────────────────────────────────────────────────
+.claude/
+CLAUDE.md
+
+# ── mkdocs (removed — kept in case of accidental rebuild) ─────────────────────
 site/
