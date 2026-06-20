@@ -1,15 +1,12 @@
-name: Publish Databricks dbt Docs to GitHub Pages
+name: Publish dbt Docs to GitHub Pages
 
-# Wake up the Robot when our Databricks code is merged, or if clicked manually
 on:
   push:
     branches: ["main"]
-    paths: 
-      - 'TMDB-ELT/cloud_pipeline/**'
-      - "TMDB-ELT/databricks_cloud/**"
-  workflow_dispatch: 
+    paths:
+      - '03-2026-tmdb-elt-pipeline/cloud_pipeline/**'
+  workflow_dispatch:
 
-# Give the Robot the security badge to write to the public website
 permissions:
   contents: read
   pages: write
@@ -18,9 +15,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: tmdb-production # Walk into the secure room for credentials
-
-    # NOTICE: The massive Postgres 'services' block is completely gone! 🗑️
+    environment: tmdb-production
 
     steps:
       - name: Checkout code
@@ -31,36 +26,27 @@ jobs:
         with:
           python-version: '3.9'
 
-      # Install the Cloud Adapter instead of Postgres
       - name: Install dbt
         run: pip install dbt-databricks
 
-      # The Chef printing the Menu (Using Cloud Secrets!)
       - name: Generate dbt docs
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          cd TMDB-ELT/cloud_pipeline/databricks_cloud
-          
-          # Always good practice to run deps in case you added dbt packages
+          cd 03-2026-tmdb-elt-pipeline/cloud_pipeline/databricks_cloud
           dbt deps --profiles-dir .
-          
-          # Generate the documentation JSON files
           dbt docs generate --profiles-dir .
 
-      # Preparing the Display Case
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      # Taping the Menu to the window (Updated folder path!)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'TMDB-ELT/cloud_pipeline/databricks_cloud/target'
+          path: '03-2026-tmdb-elt-pipeline/cloud_pipeline/databricks_cloud/target'
 
-      # Publishing it to the internet
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

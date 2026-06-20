@@ -1,75 +1,50 @@
 name: TMDB Databricks Cloud CI/CD
 
-# The Traffic Cop: Only run if our new cloud folders change
 on:
   push:
     branches: [ "main" ]
     paths:
-      - 'TMDB-ELT/cloud_pipeline/**'
-      - 'TMDB-ELT/databricks_cloud/**'
+      - '03-2026-tmdb-elt-pipeline/cloud_pipeline/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - 'TMDB-ELT/cloud_pipeline/**'
-      - 'TMDB-ELT/databricks_cloud/**'
+      - '03-2026-tmdb-elt-pipeline/cloud_pipeline/**'
 
 jobs:
   cloud-deploy:
     runs-on: ubuntu-latest
-    
-    # THE ENTERPRISE UPGRADE: Protect your Databricks secrets
-    environment: tmdb-production 
+    environment: tmdb-production
 
     steps:
-      # 1. Download your code from the Vault
       - name: Check out code
         uses: actions/checkout@v4
 
-      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # <-- Upgraded!
-      # 3. Install Cloud Dependencies
-      # Notice we swapped Postgres for boto3 (AWS) and dbt-databricks!
+          python-version: '3.11'
+
       - name: Install dependencies
         run: |
           pip install pandas requests boto3 dbt-databricks python-dotenv
 
-      # 4. Run the Python Extraction to AWS S3
-      - name: Run Python S3 Extraction
+      - name: Run Python S3 extraction
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_BUCKET: "hari-data-engineering-workspace"
         run: |
-          cd TMDB-ELT/cloud_pipeline
+          cd 03-2026-tmdb-elt-pipeline/cloud_pipeline
           python extract_to_s3.py
 
-    # 5. Run dbt in Databricks
       - name: Run dbt build
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          cd TMDB-ELT/cloud_pipeline/databricks_cloud
-          
-          # Install dbt dependencies 
+          cd 03-2026-tmdb-elt-pipeline/cloud_pipeline/databricks_cloud
           dbt deps --profiles-dir .
-          
-          # Test the connection to the Databricks cluster
           dbt debug --profiles-dir .
-          
-          # Build, Test, and Snapshot everything!
-          dbt build --profiles-dir .
-          
-          # Install dbt dependencies (if you have packages like dbt-utils)
-          dbt deps --profiles-dir .
-          
-          # Test the connection to the Databricks cluster
-          dbt debug --profiles-dir .
-          
-          # Build, Test, and Snapshot everything!
           dbt build --profiles-dir .
