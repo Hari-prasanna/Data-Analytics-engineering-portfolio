@@ -1,16 +1,8 @@
 name: Shopstream Pipeline CI/CD
 
+# Disabled — trigger manually from GitHub Actions tab when needed
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '03-2026-shopstream-pipeline/**'
-  push:
-    branches:
-      - main
-    paths:
-      - '03-2026-shopstream-pipeline/**'
+  workflow_dispatch:
 
 jobs:
   test-and-lint:
